@@ -1,0 +1,161 @@
+@import url(general.css);
+
+/* INSCRIPCIONES*/
+.inscripcion {
+    padding: 3em 0;
+} 
+
+.inscripcion section article{
+    height: auto;
+    background-color: var(--gris);
+    padding: 2em;
+    width: 80%;
+    margin: auto;
+}
+.inscripcion section:hover{
+    transition: 0.5s;
+    filter: drop-shadow(0 0.5vh 0.5vh #cecece);
+}
+.inscripcion form{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.inscripcion form .form-estudiante{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+    border-bottom: 1px solid var(--blanco);
+    padding: 1em 0;
+}
+.inscripcion form .form-estudiante .datos{
+    width: 20rem;
+    padding: 0 0 1em 0;
+}
+.inscripcion form .form-estudiante .datos input, .inscripcion form .form-estudiante .datos label{
+    display: block;
+    margin: 0;
+}
+.inscripcion .ingreso {
+    background-color: transparent;
+    font-family: var(--fuente-tres);
+    font-size: 0.8rem;
+    border: none;
+    border-bottom: 1px solid var(--rosa);
+    outline: none;
+    color: var(--negro);
+    width: 100%;
+    padding-left: 1.5em;
+}
+
+/* botones */
+.suma,
+.resta {
+    border: 1px solid var(--negro);
+    background-color: var(--blanco);
+    border-radius: 50%;
+    font-family: var(--fuente-uno);
+    font-weight: 700;
+    color: var(--negro);
+    transition: 0.5s;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+}
+.suma:hover,
+.resta:hover {
+    background-color: var(--rosa);
+    border: 1px solid var(--negro);
+    color: var(--gris); 
+}
+.resta{
+    margin: auto 0;
+}
+.agregar-persona, .eliminar-persona{
+    margin: 1em 0;
+}
+.agregar-persona .suma, .agregar-persona p, .eliminar-persona .resta, .eliminar-persona p{
+    display: inline;
+}
+
+/* terminos y condiciones
+.terminos-y-condiciones{
+    margin-bottom: 1em;
+}
+.terminos-y-condiciones .check, .terminos-y-condiciones p{
+    display: inline-block;
+    text-align: right;
+} */
+
+/* total */
+.inscripcion .total{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 100%;
+    padding-top: 1em;
+    border-top: 1px solid var(--negro);
+}
+.inscripcion .total p{
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: end;
+    padding-bottom: 1em;
+}
+
+/* aside */
+.inscripcion aside {
+    display: flex;
+    justify-content: end;
+    width: 80%;
+    margin: auto;
+    height: 20em;
+}
+.inscripcion img {
+    filter: grayscale(90%);
+    max-width: 100%;
+    margin-top: 3em;
+}
+.inscripcion img:hover{
+    filter: none;
+    transition: 0.5s;
+}
+
+/* iconos */
+.datos .nombreapellido, .datos .dni, .datos .email{
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-position: center left;
+}
+.datos .nombreapellido{
+    background-image: url(../img/user-solid.svg);
+}
+.datos .dni{
+    background-image: url(../img/address-card-solid.svg);
+}
+.datos .email {
+    background-image: url(../img/envelope-solid.svg);
+}
+
+#personasAgregadas{
+    width: 100%;
+}
+
+/* popup */
+#cerrarPopup{
+    cursor: pointer;
+    color: var(--negro);
+    float: right;
+}
+#cerrarPopup:hover{
+    transition: 0.5s;
+    color: var(--rosa);
+}
+.popup-inscriptos{
+    margin-top: 1.5em;
+}
+.popup-inscriptos h2{
+    text-align: left;
+}

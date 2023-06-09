@@ -1,0 +1,30 @@
+@import url(general.css);
+
+/* PAGINA EN CONSTRUCCION */
+.enconstruccion{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    justify-content: space-around;
+    padding: 3em;
+    height: 70vh;
+    align-items: center;
+}
+.enconstruccion article{
+    width: 50vh;
+}
+.enconstruccion article img{
+    width: 100%;
+}
+
+@media screen and (max-width: 41em) {
+    .enconstruccion{
+        height: auto;
+        width: 100%;
+    }
+    .enconstruccion article img{
+        padding-top: 3em;
+    }
+}

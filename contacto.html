@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--icon ventana-->
+    <link rel="shortcut icon" href="img/icon.svg" type="image/x-icon" />
+    <!--icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Vadodara&family=Magra:wght@700&family=Source+Code+Pro:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--css-->
+
+    <link rel="stylesheet" href="css/contacto.css" />
+    <title>Contacto | Academia Clementina</title>
+  </head>
+
+  <body class="fondo-cuadriculado">
+    <!-- H E A D E R -->
+    <header>
+      <!-- header uno -->
+      <div class="header-uno">
+        <!-- logo -->
+        <a href="index.html"
+          ><img src="img/logo-academia-wh.png" alt="Logo Academia Clementina"
+        /></a>
+
+        <!-- busqueda -->
+        <form action="#" method="get">
+          <datalist id="informacion">
+            <option value="HTML & CSS"></option>
+            <option value="Javascript"></option>
+            <option value="Java"></option>
+            <option value="Selenium"></option>
+            <option value="Python"></option>
+            <option value="Diseño UX/UI"></option>
+          </datalist>
+          <input
+            type="text"
+            name="curso"
+            list="informacion"
+            placeholder="Buscá un curso"
+          />
+          <button class="lupa">
+            <i class="fa-sharp fa-solid fa-magnifying-glass fa-sm"></i>
+          </button>
+        </form>
+
+        <!-- carrito -->
+        <div class="carrito" id="carrito">
+          <i class="fa-solid fa-cart-shopping carrito"></i>
+          <p id="numeroCarrito"></p>
+        </div>
+        <div id="cursosEnCarrito" class="d-none">
+          <div class="cursos-en-carrito">
+            <div class="titular">
+              <p>Carrito de compras</p>
+              <i class="fa-solid fa-xmark fa-lg" id="cerrarCarrito"></i>
+            </div>
+
+            <div class="cursos-agregados">
+              <p id="noCursos">Aún no agregaste cursos a tu carrito.</p>
+              <div id="agregarCurso"></div>
+            </div>
+            <div class="total">
+              <p>Total:</p>
+              <p>$<span id="totalFinalCursos"></span></p>
+            </div>
+            <button class="btn borde">
+              <a href="inscripcion.html">Inscribirme</a>
+            </button>
+          </div>
+        </div>
+
+        <!-- menú desplegable -->
+        <i class="fa-solid fa-bars menuHamburguesa" id="menuHamburguesa"></i>
+        <nav class="menu-desplegable d-none" id="menuDesplegable">
+          <i class="fa-solid fa-xmark fa-lg" id="cerrarMenu"></i>
+          <ul>
+            <li><a href="index.html" class="link-menu">Inicio</a></li>
+            <li><a href="cursos.html" class="link-menu">Cursos</a></li>
+            <li><a href="calendario.html" class="link-menu">Calendario</a></li>
+            <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
+            <li><a href="contacto.html" class="link-menu">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- header menu -->
+      <nav class="header-menu">
+        <ul>
+          <li><a href="index.html" class="link-menu">Inicio</a></li>
+          <li><a href="cursos.html" class="link-menu">Cursos</a></li>
+          <li><a href="calendario.html" class="link-menu">Calendario</a></li>
+          <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
+          <li><a href="contacto.html" class="link-menu">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- M A I N -->
+    <main>
+      <!-- formulario de contacto y datos -->
+      <section class="contenedor-uno borde">
+        <h1>Contacto</h1>
+
+        <!-- popup -->
+        <div id="popup" class="d-none">
+          <div class="popup-content borde">
+            <p>
+              Consulta enviada. <br />
+              Nos pondremos en contacto con vos pronto.
+            </p>
+            <a href="index.html"
+              ><button id="btn-aceptar" class="btn borde">Aceptar</button></a
+            >
+          </div>
+        </div>
+
+        <!-- formulario de contacto -->
+        <div class="contenedor-dos">
+          <article class="form-contacto">
+            <h2 class="tit-cont">Envianos tu consulta</h2>
+            <form action="#" method="post" id="form-contacto">
+              <div class="datos">
+                <label for="nombreyapellido2"
+                  >Nombre y apellido <span class="requerido">*</span></label
+                >
+                <input
+                  type="text"
+                  name="nombreyapellido2"
+                  id="nombreyapellido2"
+                  class="ingreso nombreyapellido"
+                  placeholder="Clementina Mercury"
+                  minlength="1"
+                  maxlength="50"
+                  required
+                />
+                <p id="errorNombreApellido"></p>
+              </div>
+              <div class="datos">
+                <label for="email2"
+                  >Correo Electrónico<span class="requerido">*</span></label
+                >
+                <input
+                  type="email"
+                  name="email2"
+                  id="email2"
+                  class="ingreso email2"
+                  placeholder="ejemplo@ejemplo.com"
+                  required
+                />
+                <p id="errorEmail"></p>
+              </div>
+              <div class="datos">
+                <label for="telefono"
+                  >Teléfono <span class="requerido">*</span></label
+                >
+                <input
+                  type="text"
+                  name="telefono"
+                  id="telefono"
+                  class="ingreso telefono"
+                  placeholder="0000-0000"
+                />
+                <p id="errorTelefono"></p>
+              </div>
+              <div class="datos">
+                <label for="asunto"
+                  >Asunto
+                  <span class="requerido">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="asunto"
+                  id="asunto"
+                  class="ingreso"
+                  required
+                  placeholder="Asunto"
+                  minlength="1"
+                  maxlength="30"
+                />
+              </div>
+              <div class="datos">
+                <label for="mensaje"
+                  >Mensaje
+                  <span class="requerido">*</span>
+                </label>
+
+                <textarea
+                  name="mensaje"
+                  class="ingreso"
+                  id="mensaje"
+                  required
+                  placeholder="Escribí acá tu comentario"
+                ></textarea>
+                <p id="errorCaracteres"></p>
+
+                <p id="respuesta"></p>
+              </div>
+              <input
+                type="submit"
+                name="enviar_formulario"
+                value="Enviar"
+                class="btn borde enviar"
+                id="boton-enviar"
+              />
+            </form>
+          </article>
+
+          <!-- datos -->
+          <article class="contacto">
+            <h2 class="tit-cont">Datos de contacto</h2>
+            <ul>
+              <li>
+                <i class="fa-solid fa-location-dot"></i>
+                <p>Florencio Varela 1903, San Justo.</p>
+              </li>
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                <p>info@clementina.com</p>
+              </li>
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <p>(+54) 11 4480 8900</p>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- mapa -->
+      <section class="mapa">
+        <h2>Ubicación</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.3643339723963!2d-58.56538012506251!3d-34.67075316104013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc62cc3ef7083%3A0x8867107f425fade5!2sUniversidad%20Nacional%20de%20La%20Matanza!5e0!3m2!1ses-419!2sar!4v1681864192298!5m2!1ses-419!2sar"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </section>
+    </main>
+
+    <!-- F O O T E R -->
+    <footer>
+      <div>
+        <h4>Co-founders</h4>
+        <ul>
+          <li>
+            <i class="fa-regular fa-heart fa-xs"></i>Solange De Bonis - DNI
+            39559490
+          </li>
+          <li>
+            <i class="fa-regular fa-heart fa-xs"></i>Eliana Navarro - DNI
+            41334491
+          </li>
+        </ul>
+      </div>
+      <div class="central">
+        <h4>Menú</h4>
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html"
+                ><i class="fa-solid fa-angle-right fa-xs"></i>Inicio</a
+              >
+            </li>
+            <li>
+              <a href="cursos.html"
+                ><i class="fa-solid fa-angle-right fa-xs"></i>Cursos</a
+              >
+            </li>
+            <li>
+              <a href="calendario.html"
+                ><i class="fa-solid fa-angle-right fa-xs"></i>Calendario</a
+              >
+            </li>
+            <li>
+              <a href="giftcard.html"
+                ><i class="fa-solid fa-angle-right fa-xs"></i>Gift card</a
+              >
+            </li>
+            <li>
+              <a href="contacto.html"
+                ><i class="fa-solid fa-angle-right fa-xs"></i>Contacto</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div>
+        <h4>Sigamos en contacto</h4>
+        <ul>
+          <li>
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="fa-brands fa-instagram"></i>@academiaclementina</a
+            >
+          </li>
+          <li>
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="fa-brands fa-facebook-f"></i> @academiaclementina</a
+            >
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/" target="_blank"
+              ><i class="fa-brands fa-linkedin-in"></i>@academiaclementina</a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <!-- js -->
+    <script src="js/general.js"></script>
+    <script src="js/contacto.js"></script>
+  </body>
+</html>

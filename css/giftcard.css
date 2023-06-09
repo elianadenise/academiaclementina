@@ -1,0 +1,261 @@
+@import url(general.css);
+
+/* Gift card */
+.giftcard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3em;
+}
+
+.giftcard:hover {
+    transition: 0.5s;
+    filter: drop-shadow(0 0.5vh 0.5vh #cecece);
+}
+
+.giftcard .ingreso {
+    width: 100%;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: start;
+    padding-top: 0.7em;
+}
+
+.radio-container div {
+    padding-right: 1rem;
+}
+
+.radio-container div input,
+.div-radio div img,
+.div-radio div .div-color {
+    display: block;
+}
+
+.radio-container div img {
+    width: 1.8rem;
+    border-radius: 0.3rem;
+    border: 1px solid var(--negro);
+}
+
+.radio-container div .color1,
+.radio-container div .color2,
+.radio-container div .color3,
+.radio-container div .color4,
+.radio-container div .color5 {
+    padding: 0.3em 1em;
+    border: 1px solid var(--negro);
+    border-radius: 50%;
+}
+
+.radio-container .color1 {
+    background-color: var(--blanco);
+}
+
+.radio-container .color2 {
+    background-color: var(--negro);
+}
+
+.radio-container .color3 {
+    background-color: var(--rosa);
+}
+
+.radio-container .color4 {
+    background-color: var(--azul);
+}
+
+.radio-container .color5 {
+    background-color: var(--violeta);
+}
+
+.ingreso-container {
+    padding: 0.7em 0;
+}
+
+.ingreso-container label,
+.ingreso-container input {
+    display: block;
+    margin: 0;
+}
+
+.giftcard-formulario {
+    background-color: var(--gris);
+    padding: 1.5em;
+    margin: 0 0.7em;
+    width: 24em;
+}
+
+.giftcard-imagen {
+    margin: 0 0.7em;
+}
+
+.giftcard-formulario:hover {
+    transition: 0.5s;
+    filter: drop-shadow(0 0.5vh 0.5vh #cecece);
+}
+
+.giftcard-formulario .container {
+    padding: 0.7em 0;
+    border-bottom: 1px solid #ffffff;
+}
+
+.giftcard-formulario .btn {
+    margin-top: 1em;
+    float: right;
+}
+
+.giftcard-imagen {
+    width: 24em;
+    height: 24em;
+    position: relative;
+    /* background-image: url(../img/fondo1.png); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: var(--gris);
+}
+
+.giftcard-imagen .monto,
+.giftcard-imagen .destinatario,
+.giftcard-imagen img {
+    position: absolute;
+}
+
+.giftcard-imagen .monto {
+    background-color: var(--negro);
+    color: var(--gris);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.7em;
+    /* border-radius: 0 0 0.3rem 0;
+    border-bottom: 1px solid var(--gris);
+    border-right: 1px solid var(--gris); */
+}
+
+.giftcard .destinatario {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.giftcard .destinatario .para {
+    font-family: var(--fuente-uno);
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.giftcard .destinatario .nombre {
+    font-family: var(--fuente-dos);
+}
+
+.giftcard-imagen img {
+    height: 2em;
+    bottom: 1.5em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* especifico js */
+/* bases */
+
+
+
+.color1{
+    color: var(--blanco);
+}
+.color2{
+    color: var(--negro);
+}
+.color3{
+    color: var(--rosa)
+}
+.color4{
+    color: var(--azul);
+}
+.color5{
+    color: var(--violeta);
+}
+
+.tamanio20{
+    font-size: 20px;
+}
+.tamanio28{
+    font-size: 28px;
+}
+.tamanio32{
+    font-size: 32px;
+}
+.tamanio48{
+    font-size: 48px;
+}
+.tamanio60{
+    font-size: 60px;
+}
+
+.ubicacion1{
+    top: 0;
+    left: 0;
+    border-radius: 0 0 0.3rem 0;
+    border-bottom: 1px solid var(--gris);
+    border-right: 1px solid var(--gris);
+}
+.ubicacion2{
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 0.3rem;
+    border-bottom: 1px solid var(--gris);
+    border-left: 1px solid var(--gris);
+}
+.ubicacion3{
+    bottom: 0;
+    left: 0;
+    border-radius: 0 0.3rem 0 0;
+    border-top: 1px solid var(--gris);
+    border-right: 1px solid var(--gris);
+}
+
+.fondo1{
+    background-image: url("../img/fondo1.png");
+}
+.fondo2{
+    background-image: url("../img/fondo2.png");
+}
+.fondo3{
+    background-image: url("../img/fondo3.png");
+}
+.fondo4{
+    background-image: url("../img/fondo4.jpg");
+}
+.fondo5{
+    background-image: url("../img/fondo5.png");
+}
+
+@media screen and (max-width: 58em) {
+    .giftcard{
+        flex-direction: column;
+        align-items: center;
+    }
+    .giftcard-imagen {
+        margin: 0 0 0.7em 0;
+    }
+    .giftcard-formulario{
+        margin: 0.7em 0 0 0;
+    }
+}
+
+@media screen and (max-width: 41em) {
+    .giftcard {
+        padding: 2em 1em;
+    }
+
+    .giftcard-imagen {
+        width: 19em;
+        height: 19em;
+    }
+
+}

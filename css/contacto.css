@@ -1,0 +1,110 @@
+@import url(general.css);
+
+main {
+  margin: 3em 0;
+}
+.contenedor-uno {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--gris);
+  width: 80%;
+  margin: auto;
+  padding: 1.5em;
+}
+.contenedor-uno:hover {
+  transition: 0.5s;
+  box-shadow: 0px 0px 10px 3px rgba(206,206,206,1);
+}
+.contenedor-dos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: start;
+}
+
+h1 {
+  text-align: center;
+}
+.tit-cont {
+  text-align: start;
+  padding-top: 1em;
+}
+.ingreso {
+  width: 100%;
+}
+.datos {
+  padding: 0.5em 0;
+  border-bottom: 1px solid var(--blanco);
+}
+.contacto {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  width: auto;
+  margin: 0 0.5em;
+}
+.dato {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 0.5em 0;
+  justify-content: center;
+  align-content: center;
+}
+.contacto i {
+  color: var(--rosa);
+  padding-right: 0.5em;
+}
+.form-contacto {
+  width: 24em;
+  margin: 0 0.5em;
+}
+
+.mapa h2 {
+  padding: 3em 0;
+}
+.mapa {
+  margin: 0;
+}
+
+.contacto ul i,
+.contacto ul p {
+  display: inline-block;
+  padding-top: 0.5em;
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  font-family: var(--fuente-uno);
+  font-weight: 700;
+  color: var(--negro);
+  padding: 1em;
+  width: 25em;
+}
+.popup-content p{
+  padding-bottom: 2em;
+}
+.enviar{
+  float: right;
+}
+
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 41em) {
+  main {
+    margin: 6.2em 0 3em 0;
+  }
+  .popup-content{
+    width: auto;
+  }
+}

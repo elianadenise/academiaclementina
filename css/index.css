@@ -1,0 +1,275 @@
+@import url(general.css);
+
+/* I N D E X */
+/* Hero */
+.hero {
+  position: relative;
+}
+.hero1,
+.hero2,
+.hero3 {
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hero1 {
+  background-image: url(../img/slider1.png);
+  background-position: center right;
+}
+.hero2 {
+  background-image: url(../img/slider-2.png);
+  background-position: center right;
+}
+.hero3 {
+  background-image: url(../img/slider-3.png);
+  background-position: center center;
+}
+.hero h1 {
+  color: var(--gris);
+  padding: 1em 0;
+  line-height: 1.5em;
+  position: absolute;
+  z-index: 3;
+  bottom: 5em;
+  left: 5em;
+}
+
+.hero h1 span {
+  background-color: var(--rosa);
+  padding: 0 0.2em;
+}
+
+.hero article {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: rgba(252, 252, 252, 0.9);
+  border: 1px solid var(--rosa);
+  border-radius: 0.3rem;
+  color: var(--negro);
+  padding: 0.7em;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  /* margin-left: 6.4em; */
+  bottom: 2em;
+  left: 8em;
+}
+
+.hero article img {
+  background-color: var(--rosa);
+  border-radius: 50%;
+  height: 2.5em;
+  width: 2.5em;
+  border: 1px solid var(--negro);
+  padding: 0.5em;
+}
+
+.hero article p {
+  padding: 0.8em;
+}
+
+/* Pasos */
+.pasos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1em;
+}
+
+.pasos article {
+  display: flex;
+  height: auto;
+  width: 25em;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: start;
+  background-color: var(--blanco);
+  padding: 1em;
+  margin: 1em;
+}
+
+.pasos article:hover {
+  transition: 0.5s;
+  transform: translate(0, -0.3rem);
+  filter: drop-shadow(0 0.2vh 0.3vh #cecece);
+}
+
+.pasos h2 {
+  padding: 0.5em;
+  color: var(--rosa);
+  background-color: var(--blanco);
+  border: 1px solid var(--rosa);
+  border-radius: 50%;
+  margin-right: 0.7em;
+}
+.pasos .encabezado {
+  font-family: var(--fuente-uno);
+  font-weight: 600;
+  color: var(--rosa);
+}
+.pasos a {
+  color: var(--negro);
+  font-weight: 600;
+  transition: 0.5s;
+}
+.pasos a:hover {
+  color: var(--rosa);
+  border-bottom: 1px solid var(--negro);
+}
+
+/* cursos destacados */
+.cursos-destacados {
+  width: 80%;
+  margin: auto;
+  padding-bottom: 3em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-row-gap: 3em;
+  grid-template-areas:
+    "titulo titulo titulo"
+    "curso1 curso2 curso3"
+    "curso4 curso5 curso6"
+    "boton boton boton";
+}
+.titulo-curso {
+  grid-area: titulo;
+  padding-bottom: 0;
+}
+.boton {
+  grid-area: boton;
+  width: auto;
+  margin: auto;
+}
+.curso1,
+.curso2,
+.curso3,
+.curso4,
+.curso5,
+.curso6 {
+  margin: auto;
+}
+
+.curso1 {
+  grid-area: curso1;
+}
+
+.curso2 {
+  grid-area: curso2;
+}
+
+.curso3 {
+  grid-area: curso3;
+}
+
+.curso4 {
+  grid-area: curso4;
+}
+
+.curso5 {
+  grid-area: curso5;
+}
+
+.curso6 {
+  grid-area: curso6;
+}
+
+/* medios de pago */
+.medios-de-pago {
+  background-color: var(--gris);
+  padding-bottom: 3em;
+}
+
+.medios-de-pago img:hover {
+  filter: none;
+  transition: 0.5s;
+}
+
+main h2,
+aside .titulo {
+  padding: 3em 0;
+}
+
+/* slider slick*/
+.slider {
+  width: 50%;
+  margin: auto;
+}
+.medios-de-pago img {
+  width: 5em;
+  filter: grayscale(90%);
+  padding: 1em;
+}
+element.style {
+  width: 5em;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: var(--negro);
+}
+
+/* slider swipe  */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--blanco);
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 41em) and (max-width: 62.5em) {
+  .cursos-destacados {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-row-gap: 3em;
+    grid-template-areas:
+      "titulo titulo"
+      "curso1 curso2"
+      "curso3 curso4"
+      "curso5 curso6"
+      "boton boton";
+  }
+  .hero article {
+    margin: 0 4em;
+    left: 0;
+  }
+  .hero h1 {
+    margin: 0 2.5em;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 41.9em) {
+  .cursos-destacados {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 3em;
+  }
+  .slider {
+    width: 80%;
+    margin: auto;
+  }
+  .hero article {
+    margin: 0 2em;
+    left: 0;
+  }
+  .hero h1 {
+    margin: 0 1.2em;
+    padding: 2em 0;
+    left: 0;
+  }
+}

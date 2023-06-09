@@ -1,0 +1,97 @@
+@import url(general.css);
+main {
+  height: 110vh;
+}
+.introduccion {
+  width: 80%;
+  margin: 3em auto;
+}
+.cursosBuscados {
+  width: 50%;
+  margin: 3em auto;
+}
+h1 {
+  text-align: center;
+}
+section p {
+  text-align: center;
+}
+section p span {
+  font-weight: 600;
+}
+
+.cursos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  align-items: center;
+  background-color: var(--blanco);
+  border-bottom: 1px solid var(--negro);
+}
+.cursos:hover {
+  background-color: var(--gris);
+  transition: 0.5s;
+}
+.cursos h2 {
+  font-family: var(--fuente-dos);
+  font-size: 1em;
+  margin-left: 1em;
+  text-transform: capitalize;
+}
+.cursos a {
+  padding-right: 1em;
+}
+.cursos img {
+  width: 2.5em;
+  background-color: var(--blanco);
+}
+.titular {
+  display: flex;
+  align-items: center;
+}
+.lupa {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 5px;
+  cursor: pointer;
+}
+.lupa:hover i {
+  transition: 0.5s;
+  color: var(--rosa);
+}
+.buscador {
+  display: flex;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+.ingreso {
+  width: 100%;
+}
+
+@media screen and (max-width: 60em) {
+  .introduccion {
+    width: 90%;
+    margin: 3em auto;
+  }
+  .cursosBuscados {
+    width: 90%;
+    margin: 3em auto;
+  }
+  main {
+    height: auto;
+  }
+}
+@media screen and (max-width: 41em) {
+  .introduccion {
+    margin: 6em auto 3em auto;
+  }
+  .cursosBuscados {
+    margin: 3em auto;
+  }
+  .cursos a {
+    display: none;
+  }
+}
