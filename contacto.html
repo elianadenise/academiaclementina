@@ -29,83 +29,73 @@
     <header>
       <!-- header uno -->
       <div class="header-uno">
-        <!-- logo -->
-        <a href="index.html"
-          ><img src="img/logo-academia-wh.png" alt="Logo Academia Clementina"
-        /></a>
+          <!-- logo -->
+          <a href="index.html"><img src="img/logo-academia-wh.png" alt="Logo Academia Clementina" /></a>
 
-        <!-- busqueda -->
-        <form action="#" method="get">
-          <datalist id="informacion">
-            <option value="HTML & CSS"></option>
-            <option value="Javascript"></option>
-            <option value="Java"></option>
-            <option value="Selenium"></option>
-            <option value="Python"></option>
-            <option value="Diseño UX/UI"></option>
-          </datalist>
-          <input
-            type="text"
-            name="curso"
-            list="informacion"
-            placeholder="Buscá un curso"
-          />
-          <button class="lupa">
-            <i class="fa-sharp fa-solid fa-magnifying-glass fa-sm"></i>
-          </button>
-        </form>
+          <!-- busqueda -->
+          <form action="#" method="get">
+              <input type="search" name="curso" placeholder="Buscá un curso" />
+              <button class="lupa">
+                  <i class="fa-sharp fa-solid fa-magnifying-glass fa-sm"></i>
+              </button>
+          </form>
 
-        <!-- carrito -->
-        <div class="carrito" id="carrito">
-          <i class="fa-solid fa-cart-shopping carrito"></i>
-          <p id="numeroCarrito"></p>
-        </div>
-        <div id="cursosEnCarrito" class="d-none">
-          <div class="cursos-en-carrito">
-            <div class="titular">
-              <p>Carrito de compras</p>
-              <i class="fa-solid fa-xmark fa-lg" id="cerrarCarrito"></i>
-            </div>
+          <!-- carrito -->
+          <div class="carrito" id="carrito">
+              <i class="fa-solid fa-cart-shopping carrito"></i>
+              <p id="numeroCarrito"></p>
 
-            <div class="cursos-agregados">
-              <p id="noCursos">Aún no agregaste cursos a tu carrito.</p>
-              <div id="agregarCurso"></div>
-            </div>
-            <div class="total">
-              <p>Total:</p>
-              <p>$<span id="totalFinalCursos"></span></p>
-            </div>
-            <button class="btn borde">
-              <a href="inscripcion.html">Inscribirme</a>
-            </button>
           </div>
-        </div>
+          <div id="cursosEnCarrito" class="d-none">
+              <div class="cursos-en-carrito">
+                  <div class="titular">
+                      <p>Carrito de compras</p>
+                      <i class="fa-solid fa-xmark fa-lg" id="cerrarCarrito"></i>
+                  </div>
 
-        <!-- menú desplegable -->
-        <i class="fa-solid fa-bars menuHamburguesa" id="menuHamburguesa"></i>
-        <nav class="menu-desplegable d-none" id="menuDesplegable">
-          <i class="fa-solid fa-xmark fa-lg" id="cerrarMenu"></i>
-          <ul>
-            <li><a href="index.html" class="link-menu">Inicio</a></li>
-            <li><a href="cursos.html" class="link-menu">Cursos</a></li>
-            <li><a href="calendario.html" class="link-menu">Calendario</a></li>
-            <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
-            <li><a href="contacto.html" class="link-menu">Contacto</a></li>
-          </ul>
-        </nav>
+                  <div class="cursos-agregados">
+                      <p id="noCursos">Aún no agregaste cursos a tu carrito.</p>
+                      <div id="agregarCurso">
+
+                      </div>
+
+                  </div>
+                  <div class="total">
+                      <p>Total:</p>
+                      <p>$<span id="totalFinalCursos"></span></p>
+                  </div>
+                  <a href="inscripcion.html"><button class="btn borde">Inscribirme</button></a>
+              </div>
+          </div>
+
+
+          <!-- menú desplegable -->
+          <i class="fa-solid fa-bars menuHamburguesa" id="menuHamburguesa"></i>
+          <nav class="menu-desplegable d-none" id="menuDesplegable">
+              <i class="fa-solid fa-xmark fa-lg" id="cerrarMenu"></i>
+              <ul>
+                  <li><a href="index.html" class="link-menu">Inicio</a></li>
+                  <li><a href="cursos.html" class="link-menu">Cursos</a></li>
+                  <li><a href="calendario.html" class="link-menu">Calendario</a></li>
+                  <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
+                  <li><a href="contacto.html" class="link-menu">Contacto</a></li>
+              </ul>
+          </nav>
+
       </div>
 
       <!-- header menu -->
       <nav class="header-menu">
-        <ul>
-          <li><a href="index.html" class="link-menu">Inicio</a></li>
-          <li><a href="cursos.html" class="link-menu">Cursos</a></li>
-          <li><a href="calendario.html" class="link-menu">Calendario</a></li>
-          <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
-          <li><a href="contacto.html" class="link-menu">Contacto</a></li>
-        </ul>
+          <ul>
+              <li><a href="index.html" class="link-menu">Inicio</a></li>
+              <li><a href="cursos.html" class="link-menu">Cursos</a></li>
+              <li><a href="calendario.html" class="link-menu">Calendario</a></li>
+              <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
+              <li><a href="contacto.html" class="link-menu">Contacto</a></li>
+          </ul>
       </nav>
-    </header>
+
+  </header>
 
     <!-- M A I N -->
     <main>

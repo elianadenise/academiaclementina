@@ -112,11 +112,10 @@
     width: 24em;
     height: 24em;
     position: relative;
-    /* background-image: url(../img/fondo1.png); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: var(--gris);
+    background-color: var(--rosa);
 }
 
 .giftcard-imagen .monto,

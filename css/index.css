@@ -199,9 +199,9 @@ aside .titulo {
   margin: auto;
 }
 .medios-de-pago img {
-  width: 5em;
+  width: 4em;
   filter: grayscale(90%);
-  padding: 1em;
+  padding: 2em;
 }
 element.style {
   width: 5em;
@@ -211,9 +211,9 @@ element.style {
   color: var(--negro);
 }
 
-/* slider swipe  */
+/* slider swiper */
 .swiper {
-  width: 100%;
+  width: 100%; 
   height: 100%;
 }
 

@@ -71,8 +71,8 @@ function validar() {
 
 /* INSCRIPCION GENERAL */
 let totalAgregado = document.getElementById("totalAgregado");
-// let totalFinal = document.getElementById("totalFinalCursos").innerHTML;
-totalAgregado.innerHTML = Number(sessionStorage.getItem("precioFinal"));
+let totalEnCarrito = Number(sessionStorage.getItem("precioFinal"))
+totalAgregado.innerHTML = totalEnCarrito;
 
 let contadorDePersonas = 1;
 let agregarPersona = document.getElementById("suma");
@@ -104,9 +104,7 @@ agregarPersona.addEventListener("click", () => {
                             </div>`
 
     // Sumar al importe total
-    let importeActual = Number(totalAgregado.innerHTML);
-    let nuevoImporte = importeActual + Number(sessionStorage.getItem("precioFinal"));
-    totalAgregado.innerHTML = nuevoImporte;
+    totalAgregado.innerHTML = totalEnCarrito * contadorDePersonas;
 })
 
 // eliminar persona

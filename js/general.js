@@ -19,99 +19,76 @@ carrito.addEventListener("click", () => {
 });
 cerrarCarrito.addEventListener("click", () => {
     popup.classList.add("d-none");
-})
+});
+
 // Obtener valores de sessionStorage
-let contador = sessionStorage.getItem("contador") || 0;
+let contador = Number(sessionStorage.getItem("contador") || 0);
 let agregadosAlCarrito = sessionStorage.getItem("agregadosAlCarrito") || '';
-let precioFinal = sessionStorage.getItem("precioFinal") || 0;
+let precioFinal = Number(sessionStorage.getItem("precioFinal") || 0);
 
 // Actualizar elementos en la página con los valores almacenados en sessionStorage
 let numeroCarrito = document.getElementById("numeroCarrito");
 let agregarCurso = document.getElementById("agregarCurso");
 let totalFinalCursos = document.getElementById("totalFinalCursos");
 numeroCarrito.innerHTML = contador;
-agregarCurso.innerHTML = agregadosAlCarrito; // bien 
+agregarCurso.innerHTML = agregadosAlCarrito;
 totalFinalCursos.innerHTML = precioFinal;
 
 // Función para actualizar los valores en sessionStorage
-function actualizarSessionStorage() { //no seria get?
+function actualizarSessionStorage() {
     sessionStorage.setItem("contador", contador);
     sessionStorage.setItem("agregadosAlCarrito", agregadosAlCarrito);
     sessionStorage.setItem("precioFinal", precioFinal);
-
-
-    // totalFinalCursos.innerHTML = precioFinal;
-
-    // agregadosAlCarrito = agregarCursoACarrito.innerHTML;
-
-
 }
 
-/* CARRITO DE COMPRAS */
-// SessionStorage de contador y precioFinal
-let cantidad = 0;
-// sessionStorage.setItem("contador", cantidad);
-// let contador = sessionStorage.getItem("contador")
-// let numeroCarrito = document.getElementById("numeroCarrito");
-numeroCarrito.innerHTML = contador;
-
-sessionStorage.setItem("precioFinal", Number(0));
-// let precioFinal = sessionStorage.getItem("precioFinal")
-totalFinalCursos.innerHTML = precioFinal;
-
-// funcion aumentar y uso
-// agregar p de curso al carrito
+// CARRITO DE COMPRAS
 let noCursos = document.getElementById("noCursos");
 
-// SessionStorage de cursos agregados al carrito.
-sessionStorage.setItem("agregadosAlCarrito", ``);
-// let sessionAgregados = sessionStorage.getItem("agregadosAlCarrito")
-
 function agregar(nombre, etiqueta) {
-    cantidad++;
-    contador = cantidad;
+    contador++;
     numeroCarrito.innerHTML = contador;
+
     // Creación del elemento en html
     let nuevoCurso = document.createElement("div");
     nuevoCurso.classList.add("curso");
-    nuevoCurso.id = `remove${etiqueta}${cantidad}`;
+    nuevoCurso.id = `remove${etiqueta}${contador}`;
 
     let nombreCurso = document.createElement("p");
     nombreCurso.textContent = nombre;
 
     let eliminarIcono = document.createElement("i");
     eliminarIcono.classList.add("fa-solid", "fa-xmark");
-    eliminarIcono.id = `eliminar${etiqueta}${cantidad}`;
+    eliminarIcono.id = `eliminar${etiqueta}${contador}`;
 
     nuevoCurso.appendChild(nombreCurso);
     nuevoCurso.appendChild(eliminarIcono);
 
     agregarCurso.appendChild(nuevoCurso);
     agregadosAlCarrito = agregarCurso.innerHTML;
-    // Fin de la creación
 
-    if (contador !== 0) {
+    // Sacar frase "Aún no agregaste cursos a tu carrito."
+    if (contador !== 0 || precioFinal !== 0) {
         noCursos.classList.add("d-none");
     }
 
     switch (nombre) {
         case 'HTML & CSS':
-            precioFinal = Number(precioFinal) + Number(precioHtml);
+            precioFinal += precioHtml;
             break;
         case 'Javascript':
-            precioFinal = Number(precioFinal) + Number(precioJavascript);
+            precioFinal += precioJavascript;
             break;
         case 'Java':
-            precioFinal = Number(precioFinal) + Number(precioJava);
+            precioFinal += precioJava;
             break;
         case 'Python':
-            precioFinal = Number(precioFinal) + Number(precioPython);
+            precioFinal += precioPython;
             break;
         case 'Selenium':
-            precioFinal = Number(precioFinal) + Number(precioSelenium);
+            precioFinal += precioSelenium;
             break;
         case 'Diseño UX/UI':
-            precioFinal = Number(precioFinal) + Number(precioDisenio);
+            precioFinal += precioDisenio;
             break;
         default:
             break;
@@ -119,82 +96,93 @@ function agregar(nombre, etiqueta) {
 
     totalFinalCursos.innerHTML = precioFinal;
 
-    // Agregar el evento para eliminar al icon de eliminar
-    let eliminarCurso = document.getElementById(`eliminar${etiqueta}${cantidad}`);
+    // Agregar el evento para eliminar al icono de eliminar
+    let eliminarCurso = document.getElementById(`eliminar${etiqueta}${contador}`);
     eliminarCurso.addEventListener("click", () => {
-        eliminar(nombre, etiqueta + cantidad);
+        eliminar(nombre, etiqueta + contador);
     });
+
     actualizarSessionStorage();
 }
-// aplicacion de aumentar
-let precioHtml = 9000;
-let agregarHtml = document.getElementById("agregarHTML");
-agregarHtml.addEventListener("click", function () {
-    agregar("HTML & CSS", "Html");
-});
-let precioJavascript = 15000;
-let agregarJavascript = document.getElementById("agregarJavascript");
-agregarJavascript.addEventListener("click", function () {
-    agregar("Javascript", "Javascript");
-});
-let precioJava = 15000;
-let agregarJava = document.getElementById("agregarJava");
-agregarJava.addEventListener("click", function () {
-    agregar("Java", "Java")
-});
-let precioPython = 15000;
-let agregarPython = document.getElementById("agregarPython");
-agregarPython.addEventListener("click", function () {
-    agregar("Python", "Python")
-});
-let precioSelenium = 15000;
-let agregarSelenium = document.getElementById("agregarSelenium");
-agregarSelenium.addEventListener("click", function () {
-    agregar(`Selenium`, `Selenium`)
-});
-let precioDisenio = 15000;
-let agregarUxui = document.getElementById("agregarUxui");
-agregarUxui.addEventListener("click", function () {
-    agregar(`Diseño UX/UI`, `Uxui`)
-});
 
-// funcion eliminar del carrito
+// Función para eliminar un curso del carrito
 function eliminar(nombre, etiqueta) {
     // Eliminar el elemento del carrito
     let elementoEliminar = document.getElementById(`remove${etiqueta}`);
-    elementoEliminar.remove(elementoEliminar);
+    elementoEliminar.remove();
 
     // Actualizar el precio final y la cantidad
     switch (nombre) {
         case 'HTML & CSS':
-            precioFinal = Number(precioFinal) - Number(precioHtml);
+            precioFinal -= precioHtml;
             break;
         case 'Javascript':
-            precioFinal = Number(precioFinal) - Number(precioJavascript);
+            precioFinal -= precioJavascript;
             break;
         case 'Java':
-            precioFinal = Number(precioFinal) - Number(precioJava);
+            precioFinal -= precioJava;
             break;
         case 'Python':
-            precioFinal = Number(precioFinal) - Number(precioPython);
+            precioFinal -= precioPython;
             break;
         case 'Selenium':
-            precioFinal = Number(precioFinal) - Number(precioSelenium);
+            precioFinal -= precioSelenium;
             break;
         case 'Diseño UX/UI':
-            precioFinal = Number(precioFinal) - Number(precioDisenio);
+            precioFinal -= precioDisenio;
             break;
         default:
             break;
     }
 
-    cantidad--;
-    contador = cantidad;
+    contador--;
     numeroCarrito.innerHTML = contador;
     totalFinalCursos.innerHTML = precioFinal;
     agregadosAlCarrito = agregarCurso.innerHTML;
-    if (contador == 0) {
-        noCursos.classList.toggle("d-none");
+
+    // Poner frase "Aún no agregaste cursos a tu carrito."
+    if (contador === 0) {
+        noCursos.classList.remove("d-none");
     }
+
     actualizarSessionStorage();
 }
+
+// Precios de los cursos
+let precioHtml = 9000;
+let precioJavascript = 15000;
+let precioJava = 15000;
+let precioPython = 15000;
+let precioSelenium = 15000;
+let precioDisenio = 15000;
+
+// Funcionalidad de agregar
+let agregarHtml = document.getElementById("agregarHTML");
+agregarHtml.addEventListener("click", function () {
+    agregar("HTML & CSS", "Html");
+});
+
+let agregarJavascript = document.getElementById("agregarJavascript");
+agregarJavascript.addEventListener("click", function () {
+    agregar("Javascript", "Javascript");
+});
+
+let agregarJava = document.getElementById("agregarJava");
+agregarJava.addEventListener("click", function () {
+    agregar("Java", "Java");
+});
+
+let agregarPython = document.getElementById("agregarPython");
+agregarPython.addEventListener("click", function () {
+    agregar("Python", "Python");
+});
+
+let agregarSelenium = document.getElementById("agregarSelenium");
+agregarSelenium.addEventListener("click", function () {
+    agregar("Selenium", "Selenium");
+});
+
+let agregarUxui = document.getElementById("agregarUxui");
+agregarUxui.addEventListener("click", function () {
+    agregar("Diseño UX/UI", "Uxui");
+});
