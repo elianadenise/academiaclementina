@@ -2,8 +2,9 @@ let formulario = document.getElementById("form-inscripcion");
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     validar();
+    // personasInscriptas();
 });
-personasInscriptas();
+
 /* VALIDACIONES */
 let regexLetras = /^[a-zA-Z\s]+$/;
 let regexEmail = /^[0-9a-zA-Z._.-]+\@[0-9a-zA-Z._.-]+\.[0-9a-zA-Z._.-]+$/;
@@ -11,17 +12,22 @@ let regexNumeros = /^[0-9]+$/;
 
 function validar() {
     let personasAgregadas = document.querySelectorAll(".form-estudiante");
-
+    let inscripcion = 0;
     for (let i = 1; i <= personasAgregadas.length; i++) {
         let errorNombreApellido = false;
         let mensajeErrorNombreApellido = "";
         let nombreApellido = document.getElementById(`nombreyapellido${i}`).value;
-        if (!regexLetras.test(nombreApellido) || (nombreApellido.length == 0 || nombreApellido.length > 50)) {
+        if (!regexLetras.test(nombreApellido) ||
+            nombreApellido.length == 0 ||
+            nombreApellido.length > 50) {
             errorNombreApellido = true;
-            mensajeErrorNombreApellido = "Nombre no es válido";
+            mensajeErrorNombreApellido = "Nombre no es válido.";
+        } else {
+            mensajeErrorNombreApellido = "";
         }
         if (errorNombreApellido) {
-            document.getElementById(`errorNombreApellido${i}`).innerHTML = mensajeErrorNombreApellido;
+            document.getElementById(`errorNombreApellido${i}`).innerHTML =
+                mensajeErrorNombreApellido;
         }
 
         let errorEmail = false;
@@ -29,7 +35,9 @@ function validar() {
         let email = document.getElementById(`email${i}`).value;
         if (!regexEmail.test(email)) {
             errorEmail = true;
-            mensajeEmail = "Correo electrónico no es válido";
+            mensajeEmail = "Correo electrónico no es válido.";
+        }else{
+            mensajeEmail = "";
         }
         if (errorEmail) {
             document.getElementById(`errorEmail${i}`).innerHTML = mensajeEmail;
@@ -40,21 +48,30 @@ function validar() {
         let dni = document.getElementById(`dni${i}`).value;
         if (dni.length >= 9 || !regexNumeros.test(dni)) {
             errorDni = true;
-            mensajeDni = "DNI no es válido";
+            mensajeDni = "DNI no es válido.";
+        } else {
+            mensajeDni = "";
         }
         if (errorDni) {
             document.getElementById(`errorDni${i}`).innerHTML = mensajeDni;
         }
 
         if (!errorNombreApellido && !errorEmail && !errorDni) {
-            let popup = document.getElementById("popup");
-            popup.classList.remove("d-none");
-            let cerrarPopup = document.getElementById("cerrarPopup");
-            cerrarPopup.addEventListener("click", () => {
-                popup.classList.add("d-none");
-                formulario.submit();
-            });
+            inscripcion++;
+            // personasInscriptas();
+            // formulario.submit();
         }
+    }
+    // si se logra validar todo
+    if (inscripcion === personasAgregadas.length) {
+        let popup = document.getElementById("popup");
+        popup.classList.remove("d-none");
+        // formulario.submit();
+        let cerrarPopup = document.getElementById("cerrarPopup");
+        cerrarPopup.addEventListener("click", () => {
+            popup.classList.add("d-none");
+        });
+        personasInscriptas();
     }
 }
 
@@ -113,25 +130,56 @@ eliminarPersona.addEventListener("click", () => {
     }
 });
 
+// personasInscriptas();
 // funciona a medias.
 function personasInscriptas() {
     let personasAgregadas = document.querySelectorAll(".form-estudiante");
     let estudiantesPopup = document.getElementById("estudiantes-popup");
-    let inscriptosTotales = ``;
+    // let acum = '';
+    let nombreInscripto = "";
     for (let i = 1; i <= personasAgregadas.length; i++) {
-        let nombreInscripto = document.getElementById(`nombreyapellido${i}`);
-        let inscripto = '';
-        nombreInscripto.addEventListener("input", () => {
-            inscripto = nombreInscripto.value;
-            // let valorActual = inscriptosTotales;
-            inscriptosTotales = `<li>${inscripto}</li>`;
-            estudiantesPopup.innerHTML = inscriptosTotales;
-        });
-        
+        nombreInscripto = document.getElementById(`nombreyapellido${i}`).value;
+        estudiantesPopup.innerHTML += `<li>${nombreInscripto}</li>`;
     }
-    
 }
-// esto es lo que creo que esta bien pero no funciona
+
+// ESTE NO FUNCIONA
+// function personasInscriptas() {
+//     let personasAgregadas = document.querySelectorAll(".form-estudiante");
+//     let estudiantesPopup = document.getElementById("estudiantes-popup");
+//     estudiantesPopup.innerHTML = ""; // Limpiamos el contenido previo
+
+//     for (let i = 1; i <= personasAgregadas.length; i++) {
+//         let nombreInscripto = document.getElementById(`nombreyapellido${i}`);let liElement;
+//         nombreInscripto.addEventListener("input", () => {
+//             let inscripto = nombreInscripto.value;
+//             liElement = document.createElement("li");
+//             liElement.textContent = inscripto;
+//             estudiantesPopup.appendChild(liElement);
+//         })
+
+//     }
+// }
+
+// este funciona pero no. este tampoco
+
+// function personasInscriptas() {
+//     let personasAgregadas = document.querySelectorAll(".form-estudiante");
+//     let estudiantesPopup = document.getElementById("estudiantes-popup");
+//     let inscriptosTotales = ``;
+//     for (let i = 1; i <= personasAgregadas.length; i++) {
+//         let nombreInscripto = document.getElementById(`nombreyapellido${i}`);
+//         let inscripto = '';
+//         nombreInscripto.addEventListener("input", () => {
+//             inscripto = nombreInscripto.value;
+//             // let valorActual = inscriptosTotales;
+//             inscriptosTotales = `<li>${inscripto}</li>`;
+//             estudiantesPopup.innerHTML += inscriptosTotales;
+//         });
+//     }
+// }
+
+// esto es lo que creo que esta bien pero no funciona NO FUNCIONA
 // function personasInscriptas() {
 //     let personasAgregadas = document.querySelectorAll(".form-estudiante");
 //     let estudiantesPopup = document.getElementById("estudiantes-popup");
