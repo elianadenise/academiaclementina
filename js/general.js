@@ -21,6 +21,8 @@ cerrarCarrito.addEventListener("click", () => {
     popup.classList.add("d-none");
 });
 
+
+/* SESSION STORAGE */
 // Obtener valores de sessionStorage
 let contador = Number(sessionStorage.getItem("contador") || 0);
 let agregadosAlCarrito = sessionStorage.getItem("agregadosAlCarrito") || '';
@@ -41,7 +43,7 @@ function actualizarSessionStorage() {
     sessionStorage.setItem("precioFinal", precioFinal);
 }
 
-// CARRITO DE COMPRAS
+/* CARRITO DE COMPRAS */ // Agregar cursos al carrito
 let noCursos = document.getElementById("noCursos");
 
 function agregar(nombre, etiqueta) {
@@ -66,8 +68,10 @@ function agregar(nombre, etiqueta) {
     agregarCurso.appendChild(nuevoCurso);
     agregadosAlCarrito = agregarCurso.innerHTML;
 
+    let sessionagregados = sessionStorage.getItem("agregadosAlCarrito");
+    let stringvacio = '';
     // Sacar frase "Aún no agregaste cursos a tu carrito."
-    if (contador !== 0 || precioFinal !== 0) {
+    if (contador !== 0 || precioFinal !== 0 || !sessionagregados == '') {
         noCursos.classList.add("d-none");
     }
 
@@ -96,7 +100,7 @@ function agregar(nombre, etiqueta) {
 
     totalFinalCursos.innerHTML = precioFinal;
 
-    // Agregar el evento para eliminar al icono de eliminar
+    // Agrego funcion eliminar para que se genere 
     let eliminarCurso = document.getElementById(`eliminar${etiqueta}${contador}`);
     eliminarCurso.addEventListener("click", () => {
         eliminar(nombre, etiqueta + contador);
@@ -107,11 +111,10 @@ function agregar(nombre, etiqueta) {
 
 // Función para eliminar un curso del carrito
 function eliminar(nombre, etiqueta) {
-    // Eliminar el elemento del carrito
-    let elementoEliminar = document.getElementById(`remove${etiqueta}`);
-    elementoEliminar.remove();
+    // Eliminar curso del carrito
+    let cursoEliminar = document.getElementById(`remove${etiqueta}`);
+    cursoEliminar.remove();
 
-    // Actualizar el precio final y la cantidad
     switch (nombre) {
         case 'HTML & CSS':
             precioFinal -= precioHtml;
@@ -156,37 +159,6 @@ let precioPython = 15000;
 let precioSelenium = 15000;
 let precioDisenio = 15000;
 
-// Funcionalidad de agregar
-let agregarHtml = document.getElementById("agregarHTML");
-agregarHtml.addEventListener("click", function () {
-    agregar("HTML & CSS", "Html");
-});
-
-let agregarJavascript = document.getElementById("agregarJavascript");
-agregarJavascript.addEventListener("click", function () {
-    agregar("Javascript", "Javascript");
-});
-
-let agregarJava = document.getElementById("agregarJava");
-agregarJava.addEventListener("click", function () {
-    agregar("Java", "Java");
-});
-
-let agregarPython = document.getElementById("agregarPython");
-agregarPython.addEventListener("click", function () {
-    agregar("Python", "Python");
-});
-
-let agregarSelenium = document.getElementById("agregarSelenium");
-agregarSelenium.addEventListener("click", function () {
-    agregar("Selenium", "Selenium");
-});
-
-let agregarUxui = document.getElementById("agregarUxui");
-agregarUxui.addEventListener("click", function () {
-    agregar("Diseño UX/UI", "Uxui");
-});
-
 // Buscador
 let buscadorHeader = document.getElementById("buscadorHeader");
 
@@ -204,7 +176,7 @@ buscadorHeader.addEventListener("keydown", (e) => {
     window.location.href = "cursos.html"; 
   }
 });
-// Si busca haciendo click en la lupa
+// Si busca haciendo click en la lupa (no funciona si pongo a en button)
 let lupaHeader = document.getElementById("lupaHeader");
 lupaHeader.addEventListener("click", (e) => {
     e.preventDefault();

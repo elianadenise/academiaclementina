@@ -3,7 +3,7 @@ formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     validar();
 });
-
+personasInscriptas();
 /* VALIDACIONES */
 let regexLetras = /^[a-zA-Z\s]+$/;
 let regexEmail = /^[0-9a-zA-Z._.-]+\@[0-9a-zA-Z._.-]+\.[0-9a-zA-Z._.-]+$/;
@@ -113,17 +113,37 @@ eliminarPersona.addEventListener("click", () => {
     }
 });
 
-personasInscriptas();
+// funciona a medias.
 function personasInscriptas() {
     let personasAgregadas = document.querySelectorAll(".form-estudiante");
     let estudiantesPopup = document.getElementById("estudiantes-popup");
-    let valoresActuales = document.getElementById("estudiantes-popup").innerHTML;
-  
+    let inscriptosTotales = ``;
     for (let i = 1; i <= personasAgregadas.length; i++) {
-      let nombreInscripto = document.getElementById(`nombreyapellido${i}`);
-      nombreInscripto.addEventListener("input", () => {
-        let inscripto = `<li>${nombreInscripto.value}</li>`;
-        estudiantesPopup.innerHTML = valoresActuales + inscripto;
-      });
+        let nombreInscripto = document.getElementById(`nombreyapellido${i}`);
+        let inscripto = '';
+        nombreInscripto.addEventListener("input", () => {
+            inscripto = nombreInscripto.value;
+            // let valorActual = inscriptosTotales;
+            inscriptosTotales = `<li>${inscripto}</li>`;
+            estudiantesPopup.innerHTML = inscriptosTotales;
+        });
+        
     }
-  }
+    
+}
+// esto es lo que creo que esta bien pero no funciona
+// function personasInscriptas() {
+//     let personasAgregadas = document.querySelectorAll(".form-estudiante");
+//     let estudiantesPopup = document.getElementById("estudiantes-popup");
+//     let inscriptosTotales = ``;
+//     for (let i = 1; i <= personasAgregadas.length; i++) {
+//         let nombreInscripto = document.getElementById(`nombreyapellido${i}`);
+//         let inscripto = '';
+//         nombreInscripto.addEventListener("input", () => {
+//             inscripto = nombreInscripto.value;
+//             // let valorActual = inscriptosTotales;
+//         });
+//         inscriptosTotales += `<li>${inscripto}</li>`;
+//     }
+//     estudiantesPopup.innerHTML = inscriptosTotales;
+// }

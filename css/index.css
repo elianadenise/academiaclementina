@@ -223,6 +223,7 @@ aside .titulo {
   color: var(--blanco);
 }
 
+
 /* MEDIA QUERIES */
 @media screen and (min-width: 41em) and (max-width: 62.5em) {
   .cursos-destacados {
@@ -257,7 +258,7 @@ aside .titulo {
     padding-bottom: 3em;
   }
   .slider {
-    width: 85%;
+    width: 80%;
     margin: auto;
   }
   .medios-de-pago img {

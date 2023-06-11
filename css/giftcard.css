@@ -162,8 +162,6 @@
 /* especifico js */
 /* bases */
 
-
-
 .color1{
     color: var(--blanco);
 }
@@ -257,4 +255,7 @@
         height: 19em;
     }
 
+    .giftcard-formulario{
+        width: auto;
+    }
 }
