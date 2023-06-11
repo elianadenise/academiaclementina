@@ -1,266 +1,217 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--icon ventana-->
-    <link rel="shortcut icon" href="img/icon.svg" type="image/x-icon" />
-    <!--icons-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    />
-    <!--fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Hind+Vadodara&family=Magra:wght@700&family=Source+Code+Pro:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!--css-->
-    <link rel="stylesheet" href="css/inscripcion.css" />
-    <title>Inscripción | Academia Clementina</title>
-  </head>
 
-  <body>
-    <!-- H E A D E R -->
-    <header>
-      <!-- header uno -->
-      <div class="header-uno">
-          <!-- logo -->
-          <a href="index.html"><img src="img/logo-academia-wh.png" alt="Logo Academia Clementina" /></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--icon ventana-->
+  <link rel="shortcut icon" href="img/icon.svg" type="image/x-icon" />
+  <!--icons-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+  <!--fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind+Vadodara&family=Magra:wght@700&family=Source+Code+Pro:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+  <!--css-->
+  <link rel="stylesheet" href="css/inscripcion.css" />
+  <title>Inscripción | Academia Clementina</title>
+</head>
 
-          <!-- busqueda -->
-          <form action="#" method="get">
-              <input type="search" name="curso" placeholder="Buscá un curso" />
-              <button class="lupa">
-                  <i class="fa-sharp fa-solid fa-magnifying-glass fa-sm"></i>
-              </button>
-          </form>
+<body>
+  <!-- H E A D E R -->
+  <header>
+    <!-- header uno -->
+    <div class="header-uno">
+      <!-- logo -->
+      <a href="index.html"><img src="img/logo-academia-wh.png" alt="Logo Academia Clementina" /></a>
 
-          <!-- carrito -->
-          <div class="carrito" id="carrito">
-              <i class="fa-solid fa-cart-shopping carrito"></i>
-              <p id="numeroCarrito"></p>
+      <!-- busqueda -->
+      <form action="#" method="get">
+        <input type="search" name="curso" placeholder="Buscá un curso" id="buscadorHeader"/>
+        <button class="lupa" id="lupaHeader">
+            <i class="fa-sharp fa-solid fa-magnifying-glass fa-sm"></i>
+        </button>
+    </form>
 
-          </div>
-          <div id="cursosEnCarrito" class="d-none">
-              <div class="cursos-en-carrito">
-                  <div class="titular">
-                      <p>Carrito de compras</p>
-                      <i class="fa-solid fa-xmark fa-lg" id="cerrarCarrito"></i>
-                  </div>
-
-                  <div class="cursos-agregados">
-                      <p id="noCursos">Aún no agregaste cursos a tu carrito.</p>
-                      <div id="agregarCurso">
-
-                      </div>
-
-                  </div>
-                  <div class="total">
-                      <p>Total:</p>
-                      <p>$<span id="totalFinalCursos"></span></p>
-                  </div>
-                  <a href="inscripcion.html"><button class="btn borde">Inscribirme</button></a>
-              </div>
+      <!-- carrito -->
+      <div class="carrito" id="carrito">
+        <i class="fa-solid fa-cart-shopping carrito"></i>
+        <p id="numeroCarrito"></p>
+      </div>
+      <div id="cursosEnCarrito" class="d-none">
+        <div class="cursos-en-carrito">
+          <div class="titular">
+            <p>Carrito de compras</p>
+            <i class="fa-solid fa-xmark fa-lg" id="cerrarCarrito"></i>
           </div>
 
-
-          <!-- menú desplegable -->
-          <i class="fa-solid fa-bars menuHamburguesa" id="menuHamburguesa"></i>
-          <nav class="menu-desplegable d-none" id="menuDesplegable">
-              <i class="fa-solid fa-xmark fa-lg" id="cerrarMenu"></i>
-              <ul>
-                  <li><a href="index.html" class="link-menu">Inicio</a></li>
-                  <li><a href="cursos.html" class="link-menu">Cursos</a></li>
-                  <li><a href="calendario.html" class="link-menu">Calendario</a></li>
-                  <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
-                  <li><a href="contacto.html" class="link-menu">Contacto</a></li>
-              </ul>
-          </nav>
-
+          <div class="cursos-agregados">
+            <p id="noCursos">Aún no agregaste cursos a tu carrito.</p>
+            <div id="agregarCurso"></div>
+          </div>
+          <div class="total">
+            <p>Total:</p>
+            <p>$<span id="totalFinalCursos"></span></p>
+          </div>
+          <a href="inscripcion.html"><button class="btn borde">Inscribirme</button></a>
+        </div>
       </div>
 
-      <!-- header menu -->
-      <nav class="header-menu">
-          <ul>
-              <li><a href="index.html" class="link-menu">Inicio</a></li>
-              <li><a href="cursos.html" class="link-menu">Cursos</a></li>
-              <li><a href="calendario.html" class="link-menu">Calendario</a></li>
-              <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
-              <li><a href="contacto.html" class="link-menu">Contacto</a></li>
-          </ul>
+      <!-- menú desplegable -->
+      <i class="fa-solid fa-bars menuHamburguesa" id="menuHamburguesa"></i>
+      <nav class="menu-desplegable d-none" id="menuDesplegable">
+        <i class="fa-solid fa-xmark fa-lg" id="cerrarMenu"></i>
+        <ul>
+          <li><a href="index.html" class="link-menu">Inicio</a></li>
+          <li><a href="cursos.html" class="link-menu">Cursos</a></li>
+          <li><a href="calendario.html" class="link-menu">Calendario</a></li>
+          <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
+          <li><a href="contacto.html" class="link-menu">Contacto</a></li>
+        </ul>
       </nav>
+    </div>
 
+    <!-- header menu -->
+    <nav class="header-menu">
+      <ul>
+        <li><a href="index.html" class="link-menu">Inicio</a></li>
+        <li><a href="cursos.html" class="link-menu">Cursos</a></li>
+        <li><a href="calendario.html" class="link-menu">Calendario</a></li>
+        <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
+        <li><a href="contacto.html" class="link-menu">Contacto</a></li>
+      </ul>
+    </nav>
   </header>
 
-    <!-- M A I N -->
-    <main class="inscripcion fondo-cuadriculado">
-      <!-- inscripcion -->
-      <section>
-        <article class="borde">
-          <h1>Inscripción</h1>
-          <!-- formulario -->
-          <form action="#" method="post" id="form-inscripcion">
-            <div id="personasAgregadas">
-              <div class="form-estudiante">
-                <div class="datos">
-                  <label for="nombreyapellido1"
-                    >Nombre y apellido <span class="requerido">*</span></label
-                  >
-                  <input
-                    type="text"
-                    name="nombreyapellido1"
-                    id="nombreyapellido1"
-                    class="ingreso nombreapellido"
-                    placeholder="Clementina Mercury"
-                    required
-                  />
-                  <p id="errorNombreApellido1"></p>
-                </div>
-                <div class="datos">
-                  <label for="email1"
-                    >Correo electrónico <span class="requerido">*</span></label
-                  >
-                  <input
-                    type="email"
-                    name="email1"
-                    id="email1"
-                    class="ingreso email"
-                    placeholder="ejemplo@ejemplo.com"
-                    required
-                  />
-                  <p id="errorEmail1"></p>
-                </div>
-                <div class="datos">
-                  <label for="dni1">DNI <span class="requerido">*</span></label>
-                  <input
-                    type="number"
-                    name="dni1"
-                    id="dni1"
-                    class="ingreso dni"
-                    placeholder="00000000"
-                    required
-                  />
-                  <p id="errorDni1"></p>
-                </div>
-                <!-- eliminar persona -->
-                <!-- <a class="resta" id="resta">-</a> -->
+  <!-- M A I N -->
+  <main class="inscripcion fondo-cuadriculado">
+    <!-- inscripcion -->
+    <section>
+      <article class="borde">
+        <h1>Inscripción</h1>
+        <!-- formulario -->
+        <form action="#" method="post" id="form-inscripcion">
+          <div id="personasAgregadas">
+            <div class="form-estudiante">
+              <div class="datos">
+                <label for="nombreyapellido1">Nombre y apellido <span class="requerido">*</span></label>
+                <input type="text" name="nombreyapellido1" id="nombreyapellido1" class="ingreso nombreapellido"
+                  placeholder="Clementina Mercury" required />
+                <p id="errorNombreApellido1" class="requerido"></p>
               </div>
+              <div class="datos">
+                <label for="email1">Correo electrónico <span class="requerido">*</span></label>
+                <input type="email" name="email1" id="email1" class="ingreso email" placeholder="ejemplo@ejemplo.com"
+                  required />
+                <p id="errorEmail1" class="requerido"></p>
+              </div>
+              <div class="datos">
+                <label for="dni1">DNI <span class="requerido">*</span></label>
+                <input type="number" name="dni1" id="dni1" class="ingreso dni" placeholder="00000000" required />
+                <p id="errorDni1" class="requerido"></p>
+              </div>
+              <!-- eliminar persona -->
+              <!-- <a class="resta" id="resta">-</a> -->
             </div>
-            <!-- agregar persona -->
-            <div class="agregar-persona" id="suma">
-              <a class="suma">+</a>
-              <p>Agregar persona</p>
-            </div>
+          </div>
+          <!-- agregar persona -->
+          <div class="agregar-persona" id="suma">
+            <a class="suma">+</a>
+            <p>Agregar persona</p>
+          </div>
 
-            <!-- eliminar persona -->
-            <div class="eliminar-persona" id="resta">
-              <a class="resta">-</a>
-              <p>Eliminar persona</p>
-            </div>
+          <!-- eliminar persona -->
+          <div class="eliminar-persona" id="resta">
+            <a class="resta">-</a>
+            <p>Eliminar persona</p>
+          </div>
 
-            <!-- total -->
-            <div class="total">
-              <p>Total: ARS$<span id="totalAgregado"></span></p>
-              <input
-                type="submit"
-                value="Realizar inscripción"
-                class="btn borde"
-              />
-            </div>
-          </form>
-        </article>
-      </section>
+          <!-- total -->
+          <div class="total">
+            <p>Total: ARS$<span id="totalAgregado"></span></p>
+            <input type="submit" value="Realizar inscripción" class="btn borde" />
+          </div>
+        </form>
+      </article>
+    </section>
 
-      <section class="popup-inscriptos">
-        <article id="popup" class="borde">
-          <!--D-NONEEEEE-->
-          <i class="fa-solid fa-xmark fa-lg" id="cerrarPopup"></i>
-          <h2>Incripción exitosa</h2>
-          <p>Se ha inscripto a:</p>
-          <ul id="estudiantes-popup"></ul>
-        </article>
-      </section>
+    <section class="popup-inscriptos">
+      <article id="popup" class="borde">
+        <!--D-NONEEEEE-->
+        <i class="fa-solid fa-xmark fa-lg" id="cerrarPopup"></i>
+        <h2>Incripción exitosa</h2>
+        <p>Se ha inscripto a:</p>
+        <ul id="estudiantes-popup"></ul>
+      </article>
+    </section>
 
-      <aside>
-        <img src="img/computer.svg" alt="Computadora Clementina" />
-      </aside>
-    </main>
+    <aside>
+      <img src="img/computer.svg" alt="Computadora Clementina" />
+    </aside>
+  </main>
 
-    <!-- F O O T E R -->
-    <footer>
-      <div>
-        <h4>Co-founders</h4>
+  <!-- F O O T E R -->
+  <footer>
+    <div>
+      <h4>Co-founders</h4>
+      <ul>
+        <li>
+          <i class="fa-regular fa-heart fa-xs"></i>Solange De Bonis - DNI
+          39559490
+        </li>
+        <li>
+          <i class="fa-regular fa-heart fa-xs"></i>Eliana Navarro - DNI
+          41334491
+        </li>
+      </ul>
+    </div>
+    <div class="central">
+      <h4>Menú</h4>
+      <nav>
         <ul>
           <li>
-            <i class="fa-regular fa-heart fa-xs"></i>Solange De Bonis - DNI
-            39559490
+            <a href="index.html"><i class="fa-solid fa-angle-right fa-xs"></i>Inicio</a>
           </li>
           <li>
-            <i class="fa-regular fa-heart fa-xs"></i>Eliana Navarro - DNI
-            41334491
+            <a href="cursos.html"><i class="fa-solid fa-angle-right fa-xs"></i>Cursos</a>
+          </li>
+          <li>
+            <a href="calendario.html"><i class="fa-solid fa-angle-right fa-xs"></i>Calendario</a>
+          </li>
+          <li>
+            <a href="giftcard.html"><i class="fa-solid fa-angle-right fa-xs"></i>Gift card</a>
+          </li>
+          <li>
+            <a href="contacto.html"><i class="fa-solid fa-angle-right fa-xs"></i>Contacto</a>
           </li>
         </ul>
-      </div>
-      <div class="central">
-        <h4>Menú</h4>
-        <nav>
-          <ul>
-            <li>
-              <a href="index.html"
-                ><i class="fa-solid fa-angle-right fa-xs"></i>Inicio</a
-              >
-            </li>
-            <li>
-              <a href="cursos.html"
-                ><i class="fa-solid fa-angle-right fa-xs"></i>Cursos</a
-              >
-            </li>
-            <li>
-              <a href="calendario.html"
-                ><i class="fa-solid fa-angle-right fa-xs"></i>Calendario</a
-              >
-            </li>
-            <li>
-              <a href="giftcard.html"
-                ><i class="fa-solid fa-angle-right fa-xs"></i>Gift card</a
-              >
-            </li>
-            <li>
-              <a href="contacto.html"
-                ><i class="fa-solid fa-angle-right fa-xs"></i>Contacto</a
-              >
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div>
-        <h4>Sigamos en contacto</h4>
-        <ul>
-          <li>
-            <a href="https://www.instagram.com/" target="_blank"
-              ><i class="fa-brands fa-instagram"></i>@academiaclementina</a
-            >
-          </li>
-          <li>
-            <a href="https://www.facebook.com/" target="_blank"
-              ><i class="fa-brands fa-facebook-f"></i> @academiaclementina</a
-            >
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/" target="_blank"
-              ><i class="fa-brands fa-linkedin-in"></i>@academiaclementina</a
-            >
-          </li>
-        </ul>
-      </div>
-    </footer>
+      </nav>
+    </div>
+    <div>
+      <h4>Sigamos en contacto</h4>
+      <ul>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank"><i
+              class="fa-brands fa-instagram"></i>@academiaclementina</a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i>
+            @academiaclementina</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/" target="_blank"><i
+              class="fa-brands fa-linkedin-in"></i>@academiaclementina</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
 
-    <!-- js -->
-    <script src="js/inscripcion.js"></script>
-    <script src="js/general.js"></script>
-  </body>
+  <!-- js -->
+  <script src="js/inscripcion.js"></script>
+  <script src="js/general.js"></script>
+</body>
+
 </html>

@@ -199,12 +199,9 @@ aside .titulo {
   margin: auto;
 }
 .medios-de-pago img {
-  width: 4em;
+  width: 15em;
   filter: grayscale(90%);
-  padding: 2em;
-}
-element.style {
-  width: 5em;
+  padding: 0 2em;
 }
 .slick-prev:before,
 .slick-next:before {
@@ -260,8 +257,12 @@ element.style {
     padding-bottom: 3em;
   }
   .slider {
-    width: 80%;
+    width: 85%;
     margin: auto;
+  }
+  .medios-de-pago img {
+    width: 10em;
+    padding: 0 0.5em;
   }
   .hero article {
     margin: 0 2em;

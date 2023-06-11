@@ -480,9 +480,6 @@ input:-webkit-autofill {
 }
 
 .requerido,
-#errorNombreApellido,
-#errorEmail,
-#errorDni,
 #errorDestinatario,
 #errorMonto,
 #supererror,

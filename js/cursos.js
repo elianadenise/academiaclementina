@@ -87,3 +87,7 @@ buscador.addEventListener("keyup", () => {
     });
 
 });
+
+// Traer valor del sessionStorage
+let valorSession = sessionStorage.getItem("buscadorStorage")
+buscador.value = valorSession;

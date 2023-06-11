@@ -186,3 +186,31 @@ let agregarUxui = document.getElementById("agregarUxui");
 agregarUxui.addEventListener("click", function () {
     agregar("Diseño UX/UI", "Uxui");
 });
+
+// Buscador
+let buscadorHeader = document.getElementById("buscadorHeader");
+
+// Tomo el valor del input
+buscadorHeader.addEventListener("input", () => {
+  let buscadorStorage = buscadorHeader.value;
+  sessionStorage.setItem("buscadorStorage", buscadorStorage);
+});
+// Si busca con tecla enter
+buscadorHeader.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    let buscadorStorage = buscadorHeader.value;
+    sessionStorage.setItem("buscadorStorage", buscadorStorage);
+    window.location.href = "cursos.html"; 
+  }
+});
+// Si busca haciendo click en la lupa
+let lupaHeader = document.getElementById("lupaHeader");
+lupaHeader.addEventListener("click", (e) => {
+    e.preventDefault();
+    let buscadorStorage = buscadorHeader.value;
+    sessionStorage.setItem("buscadorStorage", buscadorStorage);
+    window.location.href = "cursos.html";
+})
+// Traer el valor del storage
+let buscadorStorage = sessionStorage.getItem("buscadorStorage") || "";
