@@ -1,8 +1,8 @@
+/* JS - INSCRIPCIÓN */
 let formulario = document.getElementById("form-inscripcion");
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     validar();
-    // personasInscriptas();
 });
 
 /* VALIDACIONES */
@@ -58,7 +58,6 @@ function validar() {
 
         if (!errorNombreApellido && !errorEmail && !errorDni) {
             inscripcion++;
-            // personasInscriptas();
             // formulario.submit();
         }
     }
@@ -76,6 +75,7 @@ function validar() {
     }
 }
 
+// Agregar precio final del carrito en la inscripcion
 let totalAgregado = document.getElementById("totalAgregado");
 let totalEnCarrito = Number(sessionStorage.getItem("precioFinal"));
 totalAgregado.innerHTML = totalEnCarrito;
@@ -84,7 +84,7 @@ let contadorDePersonas = 1;
 let agregarPersona = document.getElementById("suma");
 let eliminarPersona = document.getElementById("resta");
 let personas = document.getElementById("personasAgregadas");
-
+// Agregar persona
 agregarPersona.addEventListener("click", () => {
     contadorDePersonas++;
     personas.innerHTML += `<div class="form-estudiante">
@@ -108,9 +108,10 @@ agregarPersona.addEventListener("click", () => {
         </div>
     </div>`;
 
+    // Aumentar precio final
     totalAgregado.innerHTML = totalEnCarrito * contadorDePersonas;
 });
-
+// Eliminar persona
 eliminarPersona.addEventListener("click", () => {
     let personasAgregadas = document.querySelectorAll(".form-estudiante");
 
@@ -118,6 +119,7 @@ eliminarPersona.addEventListener("click", () => {
         let ultimaPersona = personasAgregadas[personasAgregadas.length - 1];
         ultimaPersona.remove();
         contadorDePersonas--;
+        // Disminuir el precio final
         totalAgregado.innerHTML = totalEnCarrito * contadorDePersonas;
     }
 
@@ -131,8 +133,7 @@ eliminarPersona.addEventListener("click", () => {
     }
 });
 
-// personasInscriptas();
-// funciona a medias.
+// Ingresa valores al popup
 function personasInscriptas() {
     let personasAgregadas = document.querySelectorAll(".form-estudiante");
     let estudiantesPopup = document.getElementById("estudiantes-popup");
@@ -143,56 +144,3 @@ function personasInscriptas() {
         estudiantesPopup.innerHTML += `<li>${nombreInscripto}</li>`;
     }
 }
-
-// ESTE NO FUNCIONA
-// function personasInscriptas() {
-//     let personasAgregadas = document.querySelectorAll(".form-estudiante");
-//     let estudiantesPopup = document.getElementById("estudiantes-popup");
-//     estudiantesPopup.innerHTML = ""; // Limpiamos el contenido previo
-
-//     for (let i = 1; i <= personasAgregadas.length; i++) {
-//         let nombreInscripto = document.getElementById(`nombreyapellido${i}`);let liElement;
-//         nombreInscripto.addEventListener("input", () => {
-//             let inscripto = nombreInscripto.value;
-//             liElement = document.createElement("li");
-//             liElement.textContent = inscripto;
-//             estudiantesPopup.appendChild(liElement);
-//         })
-
-//     }
-// }
-
-// este funciona pero no. este tampoco
-
-// function personasInscriptas() {
-//     let personasAgregadas = document.querySelectorAll(".form-estudiante");
-//     let estudiantesPopup = document.getElementById("estudiantes-popup");
-//     let inscriptosTotales = ``;
-//     for (let i = 1; i <= personasAgregadas.length; i++) {
-//         let nombreInscripto = document.getElementById(`nombreyapellido${i}`);
-//         let inscripto = '';
-//         nombreInscripto.addEventListener("input", () => {
-//             inscripto = nombreInscripto.value;
-//             // let valorActual = inscriptosTotales;
-//             inscriptosTotales = `<li>${inscripto}</li>`;
-//             estudiantesPopup.innerHTML += inscriptosTotales;
-//         });
-//     }
-// }
-
-// esto es lo que creo que esta bien pero no funciona NO FUNCIONA
-// function personasInscriptas() {
-//     let personasAgregadas = document.querySelectorAll(".form-estudiante");
-//     let estudiantesPopup = document.getElementById("estudiantes-popup");
-//     let inscriptosTotales = ``;
-//     for (let i = 1; i <= personasAgregadas.length; i++) {
-//         let nombreInscripto = document.getElementById(`nombreyapellido${i}`);
-//         let inscripto = '';
-//         nombreInscripto.addEventListener("input", () => {
-//             inscripto = nombreInscripto.value;
-//             // let valorActual = inscriptosTotales;
-//         });
-//         inscriptosTotales += `<li>${inscripto}</li>`;
-//     }
-//     estudiantesPopup.innerHTML = inscriptosTotales;
-// }

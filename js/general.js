@@ -45,7 +45,6 @@ function actualizarSessionStorage() {
 
 /* CARRITO DE COMPRAS */ // Agregar cursos al carrito
 let noCursos = document.getElementById("noCursos");
-
 function agregar(nombre, etiqueta) {
     contador++;
     numeroCarrito.innerHTML = contador;
@@ -161,12 +160,16 @@ let precioDisenio = 15000;
 
 // Buscador
 let buscadorHeader = document.getElementById("buscadorHeader");
-
+let buscadorHeader2 = document.getElementById("buscadorHeader2");
 // Tomo el valor del input
 buscadorHeader.addEventListener("input", () => {
   let buscadorStorage = buscadorHeader.value;
   sessionStorage.setItem("buscadorStorage", buscadorStorage);
 });
+buscadorHeader2.addEventListener("input", () => {
+    let buscadorStorage = buscadorHeader2.value;
+    sessionStorage.setItem("buscadorStorage", buscadorStorage);
+  });
 // Si busca con tecla enter
 buscadorHeader.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -176,11 +179,26 @@ buscadorHeader.addEventListener("keydown", (e) => {
     window.location.href = "cursos.html"; 
   }
 });
+buscadorHeader2.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      let buscadorStorage = buscadorHeader2.value;
+      sessionStorage.setItem("buscadorStorage", buscadorStorage);
+      window.location.href = "cursos.html"; 
+    }
+  });
 // Si busca haciendo click en la lupa (no funciona si pongo a en button)
 let lupaHeader = document.getElementById("lupaHeader");
+let lupaHeader2 = document.getElementById("lupaHeader2");
 lupaHeader.addEventListener("click", (e) => {
     e.preventDefault();
     let buscadorStorage = buscadorHeader.value;
+    sessionStorage.setItem("buscadorStorage", buscadorStorage);
+    window.location.href = "cursos.html";
+})
+lupaHeader2.addEventListener("click", (e) => {
+    e.preventDefault();
+    let buscadorStorage = buscadorHeader2.value;
     sessionStorage.setItem("buscadorStorage", buscadorStorage);
     window.location.href = "cursos.html";
 })

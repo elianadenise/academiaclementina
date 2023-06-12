@@ -29,17 +29,18 @@
       <a href="index.html"><img src="img/logo-academia-wh.png" alt="Logo Academia Clementina" /></a>
 
       <!-- busqueda -->
-      <form action="#" method="get">
-        <input type="search" name="curso" placeholder="Buscá un curso" id="buscadorHeader"/>
+      <form action="#" method="get" class="buscador-desk">
+        <input type="search" name="curso" placeholder="Buscá un curso" id="buscadorHeader" />
         <button class="lupa" id="lupaHeader">
-            <i class="fa-sharp fa-solid fa-magnifying-glass fa-sm"></i>
+          <i class="fa-sharp fa-solid fa-magnifying-glass fa-sm"></i>
         </button>
-    </form>
+      </form>
 
       <!-- carrito -->
       <div class="carrito" id="carrito">
         <i class="fa-solid fa-cart-shopping carrito"></i>
         <p id="numeroCarrito"></p>
+
       </div>
       <div id="cursosEnCarrito" class="d-none">
         <div class="cursos-en-carrito">
@@ -50,7 +51,10 @@
 
           <div class="cursos-agregados">
             <p id="noCursos">Aún no agregaste cursos a tu carrito.</p>
-            <div id="agregarCurso"></div>
+            <div id="agregarCurso">
+
+            </div>
+
           </div>
           <div class="total">
             <p>Total:</p>
@@ -60,18 +64,28 @@
         </div>
       </div>
 
+
       <!-- menú desplegable -->
       <i class="fa-solid fa-bars menuHamburguesa" id="menuHamburguesa"></i>
-      <nav class="menu-desplegable d-none" id="menuDesplegable">
+      <div class="menu-desplegable d-none" id="menuDesplegable">
         <i class="fa-solid fa-xmark fa-lg" id="cerrarMenu"></i>
-        <ul>
-          <li><a href="index.html" class="link-menu">Inicio</a></li>
-          <li><a href="cursos.html" class="link-menu">Cursos</a></li>
-          <li><a href="calendario.html" class="link-menu">Calendario</a></li>
-          <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
-          <li><a href="contacto.html" class="link-menu">Contacto</a></li>
-        </ul>
-      </nav>
+        <form action="#" method="get" class="buscador-mobile">
+          <input type="search" name="curso" placeholder="Buscá un curso" id="buscadorHeader2" />
+          <button class="lupa" id="lupaHeader2">
+            <i class="fa-sharp fa-solid fa-magnifying-glass fa-sm"></i>
+          </button>
+        </form>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="link-menu">Inicio</a></li>
+            <li><a href="cursos.html" class="link-menu">Cursos</a></li>
+            <li><a href="calendario.html" class="link-menu">Calendario</a></li>
+            <li><a href="giftcard.html" class="link-menu">Gift card</a></li>
+            <li><a href="contacto.html" class="link-menu">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+
     </div>
 
     <!-- header menu -->
@@ -84,6 +98,7 @@
         <li><a href="contacto.html" class="link-menu">Contacto</a></li>
       </ul>
     </nav>
+
   </header>
 
   <!-- M A I N -->

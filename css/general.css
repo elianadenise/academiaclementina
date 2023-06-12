@@ -90,11 +90,11 @@ a {
   padding: 0.5em 0;
 }
 
-.header-uno form {
+.header-uno .buscador-desk {
   position: relative;
 }
 
-.header-uno input {
+.header-uno .buscador-desk input {
   background-color: var(--negro);
   font-family: var(--fuente-tres);
   font-size: 0.8rem;
@@ -106,7 +106,7 @@ a {
   width: 30vw;
 }
 
-.header-uno .lupa {
+.header-uno .buscador-desk .lupa {
   background-color: transparent;
   border: none;
   position: absolute;
@@ -115,7 +115,7 @@ a {
   z-index: 1;
 }
 
-.header-uno .lupa:hover i {
+.header-uno .buscador-desk .lupa:hover i {
   transition: 0.5s;
   color: var(--rosa);
 }
@@ -315,13 +315,19 @@ footer a:hover i {
   color: var(--negro);
   padding-bottom: 0.3em;
 }
-
+/* cualquier input con autofill */
 input:-internal-autofill-selected {
   background-color: var(--gris);
 }
-
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px var(--gris) inset;
+}
+/* busucador input con autofill */
+.buscador-desk input:-internal-autofill-selected {
+  background-color: var(--negro);
+}
+.buscador-desk input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--negro) inset;
 }
 
 .radio,
@@ -527,7 +533,7 @@ input[type="search"]::-webkit-search-results-decoration {
     display: initial;
     cursor: pointer;
   }
-  .header-uno form {
+  .header-uno .buscador-desk {
     display: none;
   }
 
@@ -557,12 +563,12 @@ input[type="search"]::-webkit-search-results-decoration {
     height: 100%;
     right: 0;
     bottom: 0;
-    padding-top: 2em;
+    padding: 2em 1.2em;
     z-index: 6;
   }
   .link-menu {
     display: inline-block;
-    margin: 1em;
+    margin: 1em 0;
   }
   .menu-desplegable i {
     color: var(--negro);
@@ -575,4 +581,38 @@ input[type="search"]::-webkit-search-results-decoration {
     color: var(--rosa);
     transition: 1s;
   }
+  /* buscador en menu desplegable */
+  .header-uno .buscador-mobile {
+    position: relative;
+  }
+  .buscador-mobile i{
+    color: var(--negro);
+  }
+  .header-uno .buscador-mobile input {
+    background-color: var(--gris);
+    font-family: var(--fuente-tres);
+    font-size: 0.8rem;
+    border: none;
+    border-bottom: 1px solid var(--rosa);
+    outline: none;
+    color: var(--negro);
+    margin: 2em 0 1em 0;
+    width: 100%;
+  }
+  
+  .header-uno .buscador-mobile .lupa i {
+    position: absolute;
+    top: 2.9em;
+    right: 0.2em;
+    z-index: 2;
+  }
+  
+  .header-uno .buscador-mobile .lupa:hover i {
+    transition: 0.5s;
+    color: var(--rosa);
+  }
+  
+  /* .header-uno i {
+    color: var(--gris);
+  } */
 }
