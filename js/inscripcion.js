@@ -64,6 +64,8 @@ function validar() {
     }
     // si se logra validar todo
     if (inscripcion === personasAgregadas.length) {
+
+        personasInscriptas();
         let popup = document.getElementById("popup");
         popup.classList.remove("d-none");
         // formulario.submit();
@@ -71,7 +73,6 @@ function validar() {
         cerrarPopup.addEventListener("click", () => {
             popup.classList.add("d-none");
         });
-        personasInscriptas();
     }
 }
 
@@ -135,7 +136,7 @@ eliminarPersona.addEventListener("click", () => {
 function personasInscriptas() {
     let personasAgregadas = document.querySelectorAll(".form-estudiante");
     let estudiantesPopup = document.getElementById("estudiantes-popup");
-    // let acum = '';
+    estudiantesPopup.innerHTML = "";
     let nombreInscripto = "";
     for (let i = 1; i <= personasAgregadas.length; i++) {
         nombreInscripto = document.getElementById(`nombreyapellido${i}`).value;
