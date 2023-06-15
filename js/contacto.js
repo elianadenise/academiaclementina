@@ -3,8 +3,7 @@ let formularioContacto = document.getElementById("form-contacto");
 formularioContacto.addEventListener("submit", (e) => {
     e.preventDefault();
     validar();
-    // mostrarPopup();
-    // formularioContacto.submit();
+    
 });
 let mensaje = document.getElementById("mensaje");
 let mensajeContador = document.getElementById("respuesta");
@@ -19,7 +18,7 @@ mensaje.addEventListener("keyup", () => {
         mensajeErrorCaracteres.innerHTML = "";
     } else if (contadorCaracteres > caracteresMaximo) {
         mensajeContador.innerHTML = `${contadorCaracteres}/${caracteresMaximo}`;
-        mensajeErrorCaracteres.innerHTML = "Tienes solo 1000 caracteres.";
+        mensajeErrorCaracteres.innerHTML = "Tenés solo 1000 caracteres.";
         errorContador = true;
     }
 });
@@ -47,7 +46,7 @@ function validar() {
     let mensajeEmail = "";
     let email = document.getElementById("email2").value;
     if (!regexEmail.test(email)) {
-        mensajeEmail = "Correo electrónico no es válido";
+        mensajeEmail = "Correo electrónico no es válido.";
         errorEmail = true;
     }
     document.getElementById("errorEmail").innerHTML = mensajeEmail;
@@ -58,7 +57,7 @@ function validar() {
     let mensajeTelefono = "";
     let telefono = document.getElementById("telefono").value;
     if (!regexTelefono.test(telefono) || telefono.length !== 9) {
-        mensajeTelefono = "Teléfono no válido";
+        mensajeTelefono = "Teléfono no es válido.";
         errorTelefono = true;
     }
     document.getElementById("errorTelefono").innerHTML = mensajeTelefono;
@@ -67,6 +66,9 @@ function validar() {
     if (!errorNombreApellido && !errorEmail && !errorTelefono && !errorContador) {
         // mostrarPopup;
         mostrarPopup();
+        setTimeout(() => {
+            formularioContacto.submit();
+        }, 10000);
     }
 
 }

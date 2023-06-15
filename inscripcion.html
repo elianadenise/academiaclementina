@@ -106,7 +106,7 @@
     <!-- inscripcion -->
     <section>
       <article class="borde">
-        <h1>Inscripción</h1>
+        <h1 class="centro">Inscripción</h1>
         <!-- formulario -->
         <form action="#" method="post" id="form-inscripcion">
           <div id="personasAgregadas">
@@ -128,8 +128,13 @@
                 <input type="number" name="dni1" id="dni1" class="ingreso dni" placeholder="00000000" required />
                 <p id="errorDni1" class="requerido"></p>
               </div>
+              <div class="datos">
+                <label for="telefono1">Teléfono <span class="requerido">*</span></label>
+                <input type="text" name="telefono1" id="telefono1" class="ingreso telefono" placeholder="0000-0000" />
+                <p id="errorTelefono1" class="requerido"></p>
+              </div>
               <!-- eliminar persona -->
-              <!-- <a class="resta" id="resta">-</a> -->
+              <a class="resta">-</a>
             </div>
           </div>
           <!-- agregar persona -->
@@ -139,10 +144,10 @@
           </div>
 
           <!-- eliminar persona -->
-          <div class="eliminar-persona" id="resta">
+          <!-- <div class="eliminar-persona" id="resta">
             <a class="resta">-</a>
             <p>Eliminar persona</p>
-          </div>
+          </div> -->
 
           <!-- total -->
           <div class="total">

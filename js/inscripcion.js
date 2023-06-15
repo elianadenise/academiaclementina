@@ -5,11 +5,12 @@ formulario.addEventListener("submit", (e) => {
     validar();
 });
 
+
 /* VALIDACIONES */
 let regexLetras = /^[a-zA-Z\s]+$/;
 let regexEmail = /^[0-9a-zA-Z._.-]+\@[0-9a-zA-Z._.-]+\.[0-9a-zA-Z._.-]+$/;
 let regexNumeros = /^[0-9]+$/;
-
+let regexTelefono = /^\d{4}-\d{4}$/;
 function validar() {
     let personasAgregadas = document.querySelectorAll(".form-estudiante");
     let inscripcion = 0;
@@ -25,10 +26,7 @@ function validar() {
         } else {
             mensajeErrorNombreApellido = "";
         }
-        if (errorNombreApellido) {
-            document.getElementById(`errorNombreApellido${i}`).innerHTML =
-                mensajeErrorNombreApellido;
-        }
+        document.getElementById(`errorNombreApellido${i}`).innerHTML = mensajeErrorNombreApellido;
 
         let errorEmail = false;
         let mensajeEmail = "";
@@ -36,12 +34,10 @@ function validar() {
         if (!regexEmail.test(email)) {
             errorEmail = true;
             mensajeEmail = "Correo electrónico no es válido.";
-        }else{
+        } else {
             mensajeEmail = "";
         }
-        if (errorEmail) {
-            document.getElementById(`errorEmail${i}`).innerHTML = mensajeEmail;
-        }
+        document.getElementById(`errorEmail${i}`).innerHTML = mensajeEmail;
 
         let errorDni = false;
         let mensajeDni = "";
@@ -49,14 +45,24 @@ function validar() {
         if (dni.length >= 9 || !regexNumeros.test(dni)) {
             errorDni = true;
             mensajeDni = "DNI no es válido.";
+            document.getElementById(`errorDni${i}`).innerHTML = mensajeDni;
         } else {
             mensajeDni = "";
         }
-        if (errorDni) {
-            document.getElementById(`errorDni${i}`).innerHTML = mensajeDni;
-        }
+        document.getElementById(`errorDni${i}`).innerHTML = mensajeDni;
 
-        if (!errorNombreApellido && !errorEmail && !errorDni) {
+        let errorTelefono = false;
+        let mensajeTelefono = "";
+        let telefono = document.getElementById(`telefono${i}`).value;
+        if (!regexTelefono.test(telefono) || telefono.length !== 9) {
+            mensajeTelefono = "Teléfono no válido.";
+            errorTelefono = true;
+        } else {
+            mensajeTelefono = "";
+        }
+        document.getElementById(`errorTelefono${i}`).innerHTML = mensajeTelefono;
+
+        if (!errorNombreApellido && !errorEmail && !errorDni && !errorTelefono) {
             inscripcion++;
             // formulario.submit();
         }
@@ -67,11 +73,16 @@ function validar() {
         personasInscriptas();
         let popup = document.getElementById("popup");
         popup.classList.remove("d-none");
-        // formulario.submit();
+
         let cerrarPopup = document.getElementById("cerrarPopup");
         cerrarPopup.addEventListener("click", () => {
             popup.classList.add("d-none");
         });
+
+        setTimeout(() => {
+            formulario.submit();
+        }, 10000);
+
     }
 }
 
@@ -106,32 +117,62 @@ agregarPersona.addEventListener("click", () => {
                 required />
             <p id="errorDni${contadorDePersonas}" class="requerido"></p>
         </div>
+        <div class="datos">
+            <label for="telefono${contadorDePersonas}">Teléfono <span class="requerido">*</span></label>
+            <input type="text" name="telefono${contadorDePersonas}" id="telefono${contadorDePersonas}" class="ingreso telefono" placeholder="0000-0000" />
+            <p id="errorTelefono${contadorDePersonas}" class="requerido"></p>
+        </div>
+        <!-- eliminar persona -->
+            <a class="resta">-</a>
     </div>`;
 
     // Aumentar precio final
     totalAgregado.innerHTML = totalEnCarrito * contadorDePersonas;
 });
-// Eliminar persona
-eliminarPersona.addEventListener("click", () => {
-    let personasAgregadas = document.querySelectorAll(".form-estudiante");
 
-    if (personasAgregadas.length > 1) {
-        let ultimaPersona = personasAgregadas[personasAgregadas.length - 1];
-        ultimaPersona.remove();
-        contadorDePersonas--;
-        // Disminuir el precio final
-        totalAgregado.innerHTML = totalEnCarrito * contadorDePersonas;
-    }
 
-    if (personasAgregadas.length === 1) {
-        let nombreApellido = document.getElementById("nombreyapellido1");
-        nombreApellido.value = "";
-        let email = document.getElementById("email1");
-        email.value = "";
-        let dni = document.getElementById("dni1");
-        dni.value = "";
-    }
+// function eliminar() {
+//     let botonesDeEliminar = document.querySelectorAll(".resta");
+//     for (let i = 0; i < botonesDeEliminar.length; i++) {
+//       botonesDeEliminar[i].addEventListener("click", function () {
+//         console.log(this.parentNode);
+//         this.parentNode.remove();
+//       });
+//     }
+//   }
+// eliminar();
+let botonesDeEliminar = document.querySelectorAll(".resta");
+document.querySelectorAll(".resta").forEach((item) => {
+    item.addEventListener("click", function () {
+        console.log(item.parentNode);
+        // item.parentNode.remove();
+        this.parentNode.remove();
+    });
 });
+
+
+
+// // Eliminar persona
+// eliminarPersona.addEventListener("click", () => {
+//     let personasAgregadas = document.querySelectorAll(".form-estudiante");
+
+//     if (personasAgregadas.length > 1) {
+//         let ultimaPersona = personasAgregadas[personasAgregadas.length - 1];
+//         ultimaPersona.remove();
+//         contadorDePersonas--;
+//         // Disminuir el precio final
+//         totalAgregado.innerHTML = totalEnCarrito * contadorDePersonas;
+//     }
+
+//     if (personasAgregadas.length === 1) {
+//         let nombreApellido = document.getElementById("nombreyapellido1");
+//         nombreApellido.value = "";
+//         let email = document.getElementById("email1");
+//         email.value = "";
+//         let dni = document.getElementById("dni1");
+//         dni.value = "";
+//     }
+// });
 
 // Ingresa valores al popup
 function personasInscriptas() {
@@ -144,3 +185,4 @@ function personasInscriptas() {
         estudiantesPopup.innerHTML += `<li>${nombreInscripto}</li>`;
     }
 }
+

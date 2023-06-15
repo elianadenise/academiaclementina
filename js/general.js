@@ -68,9 +68,8 @@ function agregar(nombre, etiqueta) {
     agregadosAlCarrito = agregarCurso.innerHTML;
 
     let sessionagregados = sessionStorage.getItem("agregadosAlCarrito");
-    let stringvacio = '';
     // Sacar frase "Aún no agregaste cursos a tu carrito."
-    if (contador !== 0 || precioFinal !== 0 || !sessionagregados == '') {
+    if (contador !== 0 || precioFinal !== 0 || sessionagregados !== '') {
         noCursos.classList.add("d-none");
     }
 
@@ -99,10 +98,10 @@ function agregar(nombre, etiqueta) {
 
     totalFinalCursos.innerHTML = precioFinal;
 
-    // Agrego funcion eliminar para que se genere 
+    // Agrego funcion eliminar para que se genere el listener
     let eliminarCurso = document.getElementById(`eliminar${etiqueta}${contador}`);
-    eliminarCurso.addEventListener("click", () => {
-        eliminar(nombre, etiqueta + contador);
+    eliminarCurso.addEventListener("click", (evento) => {
+        eliminar(nombre, evento.currentTarget.parentNode.id);
     });
 
     actualizarSessionStorage();
@@ -110,8 +109,8 @@ function agregar(nombre, etiqueta) {
 
 // Función para eliminar un curso del carrito
 function eliminar(nombre, etiqueta) {
-    // Eliminar curso del carrito
-    let cursoEliminar = document.getElementById(`remove${etiqueta}`);
+    // Funcionamiento de eliminar
+    let cursoEliminar = document.getElementById(etiqueta);
     cursoEliminar.remove();
 
     switch (nombre) {

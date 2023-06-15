@@ -611,7 +611,10 @@ input[type="search"]::-webkit-search-results-decoration {
     transition: 0.5s;
     color: var(--rosa);
   }
-  
+
+  .centro {
+    text-align: center;
+  }
   /* .header-uno i {
     color: var(--gris);
   } */

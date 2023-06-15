@@ -32,7 +32,7 @@
   padding: 1em 0;
 }
 .inscripcion form .form-estudiante .datos {
-  width: 20rem;
+  width: 15rem;
   padding: 0 0 1em 0;
 }
 .inscripcion form .form-estudiante .datos input,
@@ -122,7 +122,8 @@
 /* iconos */
 .datos .nombreapellido,
 .datos .dni,
-.datos .email {
+.datos .email,
+.datos .telefono {
   background-repeat: no-repeat;
   background-size: 1em;
   background-position: center left;
@@ -135,6 +136,9 @@
 }
 .datos .email {
   background-image: url(../img/envelope-solid.svg);
+}
+.datos .telefono {
+  background-image: url(../img/phone-solid.svg);
 }
 
 #personasAgregadas {
