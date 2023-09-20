@@ -123,7 +123,7 @@ agregarPersona.addEventListener("click", () => {
             <p id="errorTelefono${contadorDePersonas}" class="requerido"></p>
         </div>
         <!-- eliminar persona -->
-            <a class="resta">-</a>
+            <!--<a class="resta">-</a>-->
     </div>`;
 
     // Aumentar precio final
@@ -141,38 +141,38 @@ agregarPersona.addEventListener("click", () => {
 //     }
 //   }
 // eliminar();
-let botonesDeEliminar = document.querySelectorAll(".resta");
-document.querySelectorAll(".resta").forEach((item) => {
-    item.addEventListener("click", function () {
-        console.log(item.parentNode);
-        // item.parentNode.remove();
-        this.parentNode.remove();
-    });
-});
-
-
-
-// // Eliminar persona
-// eliminarPersona.addEventListener("click", () => {
-//     let personasAgregadas = document.querySelectorAll(".form-estudiante");
-
-//     if (personasAgregadas.length > 1) {
-//         let ultimaPersona = personasAgregadas[personasAgregadas.length - 1];
-//         ultimaPersona.remove();
-//         contadorDePersonas--;
-//         // Disminuir el precio final
-//         totalAgregado.innerHTML = totalEnCarrito * contadorDePersonas;
-//     }
-
-//     if (personasAgregadas.length === 1) {
-//         let nombreApellido = document.getElementById("nombreyapellido1");
-//         nombreApellido.value = "";
-//         let email = document.getElementById("email1");
-//         email.value = "";
-//         let dni = document.getElementById("dni1");
-//         dni.value = "";
-//     }
+// let botonesDeEliminar = document.querySelectorAll(".resta");
+// document.querySelectorAll(".resta").forEach((item) => {
+//     item.addEventListener("click", function () {
+//         console.log(item.parentNode);
+//         // item.parentNode.remove();
+//         this.parentNode.remove();
+//     });
 // });
+
+
+
+// Eliminar persona
+eliminarPersona.addEventListener("click", () => {
+    let personasAgregadas = document.querySelectorAll(".form-estudiante");
+
+    if (personasAgregadas.length > 1) {
+        let ultimaPersona = personasAgregadas[personasAgregadas.length - 1];
+        ultimaPersona.remove();
+        contadorDePersonas--;
+        // Disminuir el precio final
+        totalAgregado.innerHTML = totalEnCarrito * contadorDePersonas;
+    }
+
+    if (personasAgregadas.length === 1) {
+        let nombreApellido = document.getElementById("nombreyapellido1");
+        nombreApellido.value = "";
+        let email = document.getElementById("email1");
+        email.value = "";
+        let dni = document.getElementById("dni1");
+        dni.value = "";
+    }
+});
 
 // Ingresa valores al popup
 function personasInscriptas() {

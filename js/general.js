@@ -162,30 +162,30 @@ let buscadorHeader = document.getElementById("buscadorHeader");
 let buscadorHeader2 = document.getElementById("buscadorHeader2");
 // Tomo el valor del input
 buscadorHeader.addEventListener("input", () => {
-  let buscadorStorage = buscadorHeader.value;
-  sessionStorage.setItem("buscadorStorage", buscadorStorage);
+    let buscadorStorage = buscadorHeader.value;
+    sessionStorage.setItem("buscadorStorage", buscadorStorage);
 });
 buscadorHeader2.addEventListener("input", () => {
     let buscadorStorage = buscadorHeader2.value;
     sessionStorage.setItem("buscadorStorage", buscadorStorage);
-  });
+});
 // Si busca con tecla enter
 buscadorHeader.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    let buscadorStorage = buscadorHeader.value;
-    sessionStorage.setItem("buscadorStorage", buscadorStorage);
-    window.location.href = "cursos.html"; 
-  }
+    if (e.key === "Enter") {
+        e.preventDefault();
+        let buscadorStorage = buscadorHeader.value;
+        sessionStorage.setItem("buscadorStorage", buscadorStorage);
+        window.location.href = "cursos.html";
+    }
 });
 buscadorHeader2.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      e.preventDefault();
-      let buscadorStorage = buscadorHeader2.value;
-      sessionStorage.setItem("buscadorStorage", buscadorStorage);
-      window.location.href = "cursos.html"; 
+        e.preventDefault();
+        let buscadorStorage = buscadorHeader2.value;
+        sessionStorage.setItem("buscadorStorage", buscadorStorage);
+        window.location.href = "cursos.html";
     }
-  });
+});
 // Si busca haciendo click en la lupa (no funciona si pongo a en button)
 let lupaHeader = document.getElementById("lupaHeader");
 let lupaHeader2 = document.getElementById("lupaHeader2");
